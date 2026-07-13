@@ -41,35 +41,38 @@ jobs:
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+          # Parallele Uploads. Moderat halten, damit All-Inkls Limit fuer
+          # gleichzeitige Verbindungen pro IP nicht anschlaegt.
+          PARALLEL: "4"
         run: |
           set -euo pipefail
+          export BASE="${FTP_SERVER_DIR%/}"
+          export FAILDIR="$(mktemp -d)"
 
-          UPLOADED=0
-          FAILED=0
-          BASE="${FTP_SERVER_DIR%/}"
-
-          upload_file() {
-            local local_path="$1"          # z. B. build/dashboard/index.html
-            local rel="${local_path#build/}" # -> dashboard/index.html
-            local remote="ftp://${FTP_SERVER}/${BASE}/${rel}"
-            if curl --ftp-ssl-reqd --ftp-create-dirs -k \
-                 -u "$FTP_USERNAME:$FTP_PASSWORD" \
-                 -T "$local_path" "$remote" \
-                 --connect-timeout 30 --max-time 180 \
-                 --retry 3 --retry-delay 5 -s -S; then
-              UPLOADED=$((UPLOADED + 1))
-            else
+          # Wird pro Datei in einer eigenen Subshell (xargs) aufgerufen.
+          upload_one() {
+            local local_path="$1"            # z. B. build/dashboard/index.html
+            local rel="${local_path#build/}"  # -> dashboard/index.html
+            if ! curl --ftp-ssl-reqd --ftp-create-dirs -k \
+                   -u "$FTP_USERNAME:$FTP_PASSWORD" \
+                   -T "$local_path" "ftp://${FTP_SERVER}/${BASE}/${rel}" \
+                   --connect-timeout 30 --max-time 180 \
+                   --retry 4 --retry-delay 5 -s -S; then
               echo "::warning::Upload fehlgeschlagen: $rel"
-              FAILED=$((FAILED + 1))
+              : > "$FAILDIR/$(echo "$rel" | md5sum | cut -d' ' -f1)"
             fi
           }
+          export -f upload_one
 
-          # Alle gebauten Dateien (inkl. Dotfiles wie .htaccess) hochladen.
-          while IFS= read -r -d '' file; do
-            upload_file "$file"
-          done < <(find build -type f -print0)
+          TOTAL=$(find build -type f | wc -l)
+          echo "Lade $TOTAL Dateien hoch (Parallelitaet: $PARALLEL) ..."
 
-          echo "FTPS-Deploy fertig: $UPLOADED hochgeladen, $FAILED fehlgeschlagen"
+          # Alle gebauten Dateien (inkl. Dotfiles wie .htaccess) parallel hochladen.
+          find build -type f -print0 \
+            | xargs -0 -P "$PARALLEL" -I {} bash -c 'upload_one "$@"' _ {}
+
+          FAILED=$(find "$FAILDIR" -type f | wc -l)
+          echo "FTPS-Deploy fertig: $((TOTAL - FAILED))/$TOTAL hochgeladen, $FAILED fehlgeschlagen"
           if [ "$FAILED" -gt 0 ]; then
             echo "::error::$FAILED Datei(en) konnten nicht hochgeladen werden"
             exit 1
