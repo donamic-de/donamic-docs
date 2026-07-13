@@ -1,0 +1,54 @@
+/**
+ * donamic-Theme für Docusaurus.
+ * Farbwerte abgeleitet aus shared/css/donamic-base.css (--dn-* Tokens) des
+ * i-doit-addons-Repositories, damit die Doku zum Add-on-Design passt.
+ */
+
+:root {
+  /* donamic Grün als Primärfarbe (--dn-color-primary #74b728) */
+  --ifm-color-primary: #74b728;
+  --ifm-color-primary-dark: #689f24;
+  --ifm-color-primary-darker: #5a9320; /* --dn-color-primary-hover */
+  --ifm-color-primary-darkest: #446f19; /* --dn-color-primary-active */
+  --ifm-color-primary-light: #82c53a;
+  --ifm-color-primary-lighter: #8fcc4e;
+  --ifm-color-primary-lightest: #a5d773;
+
+  /* Semantik & Flächen aus dem donamic-Design-System */
+  --ifm-color-success: #16a34a;
+  --ifm-color-danger: #dc2626;
+  --ifm-color-warning: #f59e0b;
+  --ifm-color-info: #2563eb; /* --dn-color-secondary (Link-/Akzentblau) */
+
+  --ifm-code-font-size: 90%;
+  --docusaurus-highlighted-code-line-bg: rgba(116, 183, 40, 0.08);
+}
+
+/* Dunkelmodus: hellere Grünstufen für ausreichenden Kontrast auf Dunkel. */
+[data-theme='dark'] {
+  --ifm-color-primary: #8fcc4e;
+  --ifm-color-primary-dark: #82c53a;
+  --ifm-color-primary-darker: #74b728;
+  --ifm-color-primary-darkest: #5a9320;
+  --ifm-color-primary-light: #a5d773;
+  --ifm-color-primary-lighter: #b5de8c;
+  --ifm-color-primary-lightest: #cceab0;
+
+  --docusaurus-highlighted-code-line-bg: rgba(116, 183, 40, 0.18);
+}
+
+/* Druck-Ansicht: Navigation und Seitenleisten ausblenden, damit einzelne
+   Seiten sauber gedruckt oder als PDF gespeichert werden können. */
+@media print {
+  .navbar,
+  .theme-doc-sidebar-container,
+  .theme-doc-toc-desktop,
+  .pagination-nav,
+  footer {
+    display: none !important;
+  }
+
+  .main-wrapper {
+    max-width: 100% !important;
+  }
+}

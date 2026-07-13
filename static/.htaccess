@@ -1,0 +1,25 @@
+# Apache-Konfiguration für die statische Doku-Site (All-Inkl / docs.donamic.de).
+# Docusaurus erzeugt pro Seite ein eigenes Verzeichnis mit index.html — das
+# funktioniert mit dem Standard-DirectoryIndex von Apache.
+
+# Eigene 404-Seite von Docusaurus ausliefern.
+ErrorDocument 404 /404.html
+
+# UTF-8 als Standardkodierung (deutsche Umlaute).
+AddDefaultCharset UTF-8
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Langlebiges Caching für gehashte Assets (Docusaurus vergibt Content-Hashes).
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  # HTML nie dauerhaft cachen, damit neue Releases sofort sichtbar sind.
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

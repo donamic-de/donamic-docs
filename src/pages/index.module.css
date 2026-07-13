@@ -1,0 +1,65 @@
+/**
+ * CSS-Module für die Startseite (Add-on-Übersicht).
+ * Layout-relevante Farben stammen aus den Infima-Variablen (siehe custom.css).
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--ifm-color-primary-darkest);
+  color: #fff;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.cards {
+  padding: 3rem 0;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--ifm-heading-color);
+}
+
+.cardText {
+  flex: 1;
+  color: var(--ifm-font-color-secondary);
+  margin-bottom: 1rem;
+}
+
+.cardLink {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}

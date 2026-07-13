@@ -1,0 +1,10 @@
+# Zeilenenden im Repo normalisieren (LF), Auschecken plattformabhängig.
+* text=auto eol=lf
+
+# PowerShell-Skripte behalten CRLF beim Auschecken.
+*.ps1 text eol=crlf
+
+# Binärdateien nicht anfassen.
+*.png binary
+*.jpg binary
+*.ico binary
