@@ -1,7 +1,12 @@
 name: Build & Deploy Doku
 
-# Baut die Docusaurus-Site und lädt sie per FTP auf den All-Inkl-Server
-# (docs.donamic.de). Läuft bei jedem Push auf main.
+# Baut die Docusaurus-Site und lädt den build/-Ordner per FTPS auf den
+# All-Inkl-Server (docs.donamic.de). Läuft bei jedem Push auf main.
+#
+# Upload via curl --ftp-ssl-reqd (wie im donamic-universum-Webseiten-Repo):
+# curl kommt mit dem expliziten FTPS-Datenkanal von All-Inkl zurecht, wo die
+# basic-ftp-basierte SamKirkland-Action mit "tlsv1 alert decode error"
+# (SSL alert 50, data socket) abbricht.
 on:
   push:
     branches: [main]
@@ -10,6 +15,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    name: Build & Deploy
     concurrency:
       group: deploy-docs
       cancel-in-progress: true
@@ -29,14 +35,50 @@ jobs:
       - name: Site bauen
         run: npm run build
 
-      - name: FTP-Upload nach docs.donamic.de
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          # Inhalt des Build-Ordners hochladen ...
-          local-dir: ./build/
-          # ... in das Verzeichnis, auf das die Subdomain zeigt (im KAS anlegen).
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+      - name: FTPS-Upload nach docs.donamic.de
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.FTP_SERVER_DIR }}
+        run: |
+          set -euo pipefail
+
+          UPLOADED=0
+          FAILED=0
+          BASE="${FTP_SERVER_DIR%/}"
+
+          upload_file() {
+            local local_path="$1"          # z. B. build/dashboard/index.html
+            local rel="${local_path#build/}" # -> dashboard/index.html
+            local remote="ftp://${FTP_SERVER}/${BASE}/${rel}"
+            if curl --ftp-ssl-reqd --ftp-create-dirs -k \
+                 -u "$FTP_USERNAME:$FTP_PASSWORD" \
+                 -T "$local_path" "$remote" \
+                 --connect-timeout 30 --max-time 180 \
+                 --retry 3 --retry-delay 5 -s -S; then
+              UPLOADED=$((UPLOADED + 1))
+            else
+              echo "::warning::Upload fehlgeschlagen: $rel"
+              FAILED=$((FAILED + 1))
+            fi
+          }
+
+          # Alle gebauten Dateien (inkl. Dotfiles wie .htaccess) hochladen.
+          while IFS= read -r -d '' file; do
+            upload_file "$file"
+          done < <(find build -type f -print0)
+
+          echo "FTPS-Deploy fertig: $UPLOADED hochgeladen, $FAILED fehlgeschlagen"
+          if [ "$FAILED" -gt 0 ]; then
+            echo "::error::$FAILED Datei(en) konnten nicht hochgeladen werden"
+            exit 1
+          fi
+
+      - name: Deployment-Zusammenfassung
+        if: always()
+        run: |
+          echo "## Deployment" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Dateien im Build:** $(find build -type f 2>/dev/null | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Zeitpunkt:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
