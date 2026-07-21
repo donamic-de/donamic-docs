@@ -74,6 +74,9 @@ const config: Config = {
     locales: ['de'],
   },
 
+  // Markenschriften lokal laden (Outfit + Instrument Sans, self-hosted).
+  clientModules: ['./src/fonts.ts'],
+
   presets: [
     [
       'classic',
@@ -92,12 +95,14 @@ const config: Config = {
   plugins: addons.map((addon) => docsInstance(addon)),
 
   themeConfig: {
-    image: 'img/logo.svg',
+    image: 'img/donamic-logo.png',
     navbar: {
-      title: 'donamic Docs',
+      title: 'Dokumentation',
       logo: {
         alt: 'donamic',
-        src: 'img/logo.svg',
+        src: 'img/donamic-logo.png',
+        srcDark: 'img/donamic-logo-white.png',
+        height: 30,
       },
       items: [
         {

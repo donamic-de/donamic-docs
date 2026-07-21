@@ -4,17 +4,32 @@
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 4.5rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-  background: var(--ifm-color-primary-darkest);
+  background: linear-gradient(135deg, #205509 0%, #2f7a0d 55%, #3a9d12 100%);
   color: #fff;
+}
+
+/* Leuchtender Marken-Akzent (#63E526) als Abschlusskante des Headers. */
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: var(--dn-brand);
+}
+
+.heroBanner :global(.hero__subtitle) {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 2.5rem 1.5rem;
   }
 }
 

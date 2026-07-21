@@ -10,7 +10,7 @@
     "id": "dataquality",
     "addonDir": "donamic_dataquality",
     "label": "Data Quality",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Datenqualität überwachen: Compliance-Score, Regelwerk und Bereinigungs-Workflows."
   },
   {

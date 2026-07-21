@@ -1,40 +1,87 @@
 /**
  * donamic-Theme für Docusaurus.
- * Farbwerte abgeleitet aus shared/css/donamic-base.css (--dn-* Tokens) des
- * i-doit-addons-Repositories, damit die Doku zum Add-on-Design passt.
+ *
+ * Marke: donamic.de (öffentliche Website-/Video-Marke).
+ * - Akzentfarbe: #63E526 (leuchtendes Grün, "Styleguide-Akzent")
+ * - Schriften: Outfit (Überschriften) + Instrument Sans (Fließtext), lokal geladen
+ *
+ * Für Links und Buttons wird ein abgedunkeltes Marken-Grün verwendet, das auf
+ * weißem Grund den Kontrast-Anforderungen (WCAG AA) genügt — das leuchtende
+ * #63E526 ist als reine Text-/Linkfarbe auf Weiß zu hell.
  */
 
 :root {
-  /* donamic Grün als Primärfarbe (--dn-color-primary #74b728) */
-  --ifm-color-primary: #74b728;
-  --ifm-color-primary-dark: #689f24;
-  --ifm-color-primary-darker: #5a9320; /* --dn-color-primary-hover */
-  --ifm-color-primary-darkest: #446f19; /* --dn-color-primary-active */
-  --ifm-color-primary-light: #82c53a;
-  --ifm-color-primary-lighter: #8fcc4e;
-  --ifm-color-primary-lightest: #a5d773;
+  /* Lesbares Marken-Grün (abgeleitet aus #63E526) für Links, Buttons, Fokus. */
+  --ifm-color-primary: #2f7a0d;
+  --ifm-color-primary-dark: #2a6e0c;
+  --ifm-color-primary-darker: #27670b;
+  --ifm-color-primary-darkest: #205509;
+  --ifm-color-primary-light: #359110;
+  --ifm-color-primary-lighter: #3a9d12;
+  --ifm-color-primary-lightest: #45b516;
 
-  /* Semantik & Flächen aus dem donamic-Design-System */
+  /* Leuchtendes Marken-Grün als Akzent — nur auf Flächen mit dunklem Text. */
+  --dn-brand: #63e526;
+  --dn-brand-strong: #4fc218;
+  --dn-brand-tint: rgba(99, 229, 38, 0.12);
+
+  /* Semantik */
   --ifm-color-success: #16a34a;
   --ifm-color-danger: #dc2626;
   --ifm-color-warning: #f59e0b;
-  --ifm-color-info: #2563eb; /* --dn-color-secondary (Link-/Akzentblau) */
+  --ifm-color-info: #2563eb;
 
+  /* Markenschriften (lokal via @fontsource, siehe src/fonts.ts). */
+  --ifm-font-family-base: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ifm-heading-font-family: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --ifm-heading-font-weight: 600;
   --ifm-code-font-size: 90%;
-  --docusaurus-highlighted-code-line-bg: rgba(116, 183, 40, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(99, 229, 38, 0.14);
 }
 
-/* Dunkelmodus: hellere Grünstufen für ausreichenden Kontrast auf Dunkel. */
+/* Im Dunkelmodus trägt das leuchtende Grün direkt (guter Kontrast auf Dunkel). */
 [data-theme='dark'] {
-  --ifm-color-primary: #8fcc4e;
-  --ifm-color-primary-dark: #82c53a;
-  --ifm-color-primary-darker: #74b728;
-  --ifm-color-primary-darkest: #5a9320;
-  --ifm-color-primary-light: #a5d773;
-  --ifm-color-primary-lighter: #b5de8c;
-  --ifm-color-primary-lightest: #cceab0;
+  --ifm-color-primary: #7ce63a;
+  --ifm-color-primary-dark: #63e526;
+  --ifm-color-primary-darker: #59d61f;
+  --ifm-color-primary-darkest: #45b516;
+  --ifm-color-primary-light: #8deb55;
+  --ifm-color-primary-lighter: #9bee6c;
+  --ifm-color-primary-lightest: #b5f394;
 
-  --docusaurus-highlighted-code-line-bg: rgba(116, 183, 40, 0.18);
+  --docusaurus-highlighted-code-line-bg: rgba(99, 229, 38, 0.22);
+}
+
+/* Etwas ruhigeres Schriftbild. */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar-Titel in der Display-Schrift, damit "Dokumentation" neben dem Logo
+   zur Marke passt. */
+.navbar__title {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+}
+
+/* Aktiver Eintrag in der Seitenleiste: leuchtender Marken-Akzent als Balken. */
+.menu__link--active:not(.menu__link--sublist) {
+  border-left: 3px solid var(--dn-brand);
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) - 3px);
+  background: var(--dn-brand-tint);
+}
+
+/* Versions-Badge oben auf jeder Seite im Marken-Akzent. */
+.theme-doc-version-badge.badge {
+  border-color: transparent;
+  background: var(--dn-brand-tint);
+  color: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .theme-doc-version-badge.badge {
+  color: var(--ifm-color-primary);
 }
 
 /* Druck-Ansicht: Navigation und Seitenleisten ausblenden, damit einzelne
