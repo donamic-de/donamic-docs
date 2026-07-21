@@ -54,8 +54,8 @@ Dashboards aushebelt.
 
 ## Sonderfall: Öffentliche Links
 
-Öffentliche Links (Token-basiert, Tabelle `donamic_dashboard_public_link`) umgehen
-das gesamte Berechtigungssystem — ein Nutzer mit gültigem Token sieht das Dashboard
-auch ohne i-doit-Login. Diese Funktion ist nur für Besitzer/Admins zugänglich; wer
+Öffentliche Links umgehen das gesamte Berechtigungssystem — wer den Link kennt, sieht
+das Dashboard auch ohne i-doit-Login. Diese Funktion ist nur für Besitzer/Admins
+zugänglich; wer
 keinen Link erzeugen darf, kann also auch keine Daten ungewollt öffentlich machen.
 Links lassen sich jederzeit deaktivieren oder mit Ablaufdatum versehen.

@@ -9,8 +9,8 @@ sidebar_position: 2
 
 Die Startseite zeigt:
 
-- **Compliance-Score gesamt** in Prozent — berechnet als
-  `round(bestandene Prüfungen / gesamte Prüfungen × 100, 1)`.
+- **Compliance-Score gesamt** in Prozent — der Anteil der bestandenen Prüfungen an
+  allen durchgeführten Prüfungen (auf eine Nachkommastelle gerundet).
 - KPI-Kacheln: Anzahl Regeln, geprüfte Objekte, Verstöße, Trend (Differenz zum Vortag).
 - **Trend-Chart** über die täglichen Snapshots. Über die **Zeitraum-Auswahl** (Pills
   **7 / 30 / 90 / 365 Tage**) lässt sich der dargestellte Verlaufs-Zeitraum umschalten.

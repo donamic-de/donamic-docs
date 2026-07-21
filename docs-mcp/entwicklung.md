@@ -1,48 +1,44 @@
 ---
-title: Entwicklung
+title: Erweiterte Nutzung
 sidebar_position: 5
 ---
 
-# Entwicklung
+# Erweiterte Nutzung
 
-Dieses Kapitel richtet sich an Entwickler, die den MCP-Server erweitern oder testen.
+Dieses Kapitel richtet sich an Administratoren und Power-User, die den MCP-Server
+über die Standardeinbindung hinaus betreiben oder in eigene Automatisierungen
+integrieren möchten.
 
-## Tests ausführen
+## Verbindung testen
 
-```bash
-composer install
-./vendor/bin/phpunit --testsuite=Unit    # Unit-Tests (offline)
-./vendor/bin/phpunit --testsuite=smoke   # End-to-End gegen Live-i-doit
-```
+Nach der Konfiguration lässt sich die Verbindung am schnellsten prüfen, indem Sie
+in Ihrem KI-Client (z. B. Claude Desktop oder n8n) das Tool `idoit_version`
+aufrufen. Es liefert die i-doit-Version und grundlegende System-Informationen
+zurück und funktioniert auch ohne aktive Lizenz. Kommt eine Antwort zurück, sind
+URL, API-Key und Netzwerkzugriff korrekt eingerichtet.
 
-Der Smoke-Test erwartet `IDOIT_URL`, `IDOIT_API_KEY` (und optional `IDOIT_USERNAME` /
-`IDOIT_PASSWORD`) als Umgebungsvariablen und legt während des Laufs ein temporäres
-Testobjekt an, das beim Abschluss wieder gepurged wird. Ohne diese Variablen werden alle
-Smoke-Tests übersprungen.
+Schlägt der Aufruf fehl, prüfen Sie in dieser Reihenfolge:
 
-## Projektstruktur
+1. Ist der MCP-Endpunkt aus Sicht des KI-Clients erreichbar (Firewall, HTTPS,
+   Reverse-Proxy)?
+2. Stimmen URL und API-Key mit den Werten der Konfigurationsseite überein?
+3. Ist bei aktivem Login-Zwang **Auto-Login** aktiviert bzw. Benutzername und
+   Passwort hinterlegt (siehe [Konfiguration](./konfiguration.md))?
 
-```
-donamic_idoit_mcp/
-├── bin/
-│   └── mcp-server          # CLI Entry Point
-├── src/
-│   ├── Client/
-│   │   └── IdoitJsonRpcClient.php
-│   ├── Config/
-│   │   └── ConfigLoader.php
-│   └── Mcp/
-│       ├── Server.php
-│       ├── Tool/
-│       │   ├── ToolRegistry.php
-│       │   ├── IdoitTools.php
-│       │   ├── CmdbObjectTools.php
-│       │   ├── CmdbCategoryTools.php
-│       │   ├── CmdbDialogTools.php
-│       │   └── CmdbReportsTools.php
-│       └── Resource/
-│           └── ResourceRegistry.php
-├── composer.json
-├── package.json
-└── README.md
-```
+## Einsatz in eigenen Workflows
+
+Der MCP-Server stellt eine feste Menge an Tools bereit (siehe
+[Tools & Ressourcen](./tools.md)). Diese Tools decken das Lesen und Schreiben von
+Objekten, Kategorien, Dialog-Werten und Reports ab und lassen sich in beliebigen
+MCP-fähigen KI-Clients und Automatisierungsplattformen kombinieren.
+
+Für wiederkehrende Abfragen empfiehlt es sich, in i-doit einen **Report** zu
+hinterlegen und diesen per `cmdb_reports_execute` aufzurufen. So bleibt die
+Abfragelogik zentral in i-doit gepflegt und der KI-Workflow bleibt schlank.
+
+## Berechtigungen
+
+Alle Operationen des MCP-Servers laufen im Kontext des über den API-Key
+adressierten Mandanten und unterliegen den in i-doit vergebenen Rechten. Legen Sie
+für den MCP-Zugriff bei Bedarf einen dedizierten Benutzer mit passend
+eingeschränkten Berechtigungen an, um schreibende Zugriffe zu begrenzen.

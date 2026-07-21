@@ -15,7 +15,7 @@ die Sichten in logische Gruppen:
 
 Hinweis zur Rechte-Logik: **Regelwerk** und **Ausnahmen** sind im Tree für jeden Nutzer
 mit Zugriff sichtbar, damit Bearbeiter sie auch finden, wenn die reine
-Anzeige-Berechtigung nicht separat gesetzt ist. Die schreibenden Aktionen (Regeln
+Anzeige-Berechtigung nicht separat gesetzt ist. Die ändernden Aktionen (Regeln
 speichern, Ausnahmen setzen/entfernen) blendet die Oberfläche jedoch ohne
-`Bearbeiten`-Recht aus, und das Backend blockt sie zusätzlich (siehe
+`Bearbeiten`-Recht aus und weist sie zusätzlich ab (siehe
 [Berechtigungen](../berechtigungen.md)).

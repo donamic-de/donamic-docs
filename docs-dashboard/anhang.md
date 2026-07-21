@@ -5,37 +5,44 @@ sidebar_position: 8
 
 # Anhang
 
-## Datenbanktabellen {#datenbanktabellen}
+## Tastenkürzel
 
-Alle Tabellen liegen in der Mandanten-Datenbank.
-
-| Tabelle | Zweck |
+| Kürzel | Wirkung |
 |---|---|
-| `donamic_dashboard` | Dashboard-Haupttabelle (Titel, Beschreibung, Besitzer, Layout, Zeitstempel, Standard-Flag). |
-| `donamic_dashboard_widget` | Widget-Instanzen pro Dashboard — Position, Größe und JSON-Konfiguration. |
-| `donamic_dashboard_widget_type` | Widget-Katalog — 13 vordefinierte Typen, wird beim Install/Update synchronisiert. |
-| `donamic_dashboard_share` | Freigaben mit Ziel (`person` oder `group`), Zielobjekt-ID und Recht (`view` oder `edit`). |
-| `donamic_dashboard_public_link` | Token-basierte öffentliche Links mit optionalem Ablaufdatum und Zugriffszähler. |
+| **Strg+K** (macOS: **Cmd+K**) | Command Palette öffnen (Schnellsuche über Objekte, Dashboards und Menüeinträge). |
+| **Pfeiltasten** | In den Treffern der Command Palette navigieren. |
+| **Enter** | Ausgewählten Treffer öffnen. |
+| **Esc** | Command Palette schließen. |
 
-Beim Deinstallieren werden die Add-on-Tabellen entfernt. Die Lizenzdaten in den
-Mandanten-Einstellungen (`donamic.license.data`) bleiben dabei erhalten, damit ein
-i-doit-Update (technisch ein Uninstall/Reinstall) keine erneute Aktivierung
-erfordert. Sie können bei Bedarf über die Lizenzverwaltung entfernt werden.
+## Widget-Typen auf einen Blick
 
-## API-Endpunkte (Überblick) {#api-endpunkte}
+| Widget | Wofür es gut ist |
+|---|---|
+| **Object Count** | Zählt Objekte eines bestimmten Typs, optional als Balkendiagramm. |
+| **Activity Monitor** | Zeigt neu angelegte oder zuletzt geänderte Objekte der letzten Tage. |
+| **CMDB Status Chart** | Verteilung der CMDB-Status (normal, archiviert, gelöscht) als Balken- oder Tortendiagramm. |
+| **Quick Stats** | Mehrere farbige KPI-Karten nebeneinander — ideal für Management-Übersichten. |
+| **Report** | Bettet einen vorhandenen i-doit-Report als Tabelle ein. |
+| **Contract Expiry** | Vertragsablauf-Kalender mit einstellbarem Zeithorizont. |
+| **Date Field Monitor** | Countdown für beliebige Datumsfelder (z. B. Wartung, Garantie) mit Warnstufen. |
+| **Notes** | Freitextblock für Notizen und Hinweise. |
+| **Bookmarks** | Sammlung von Weblinks als Kacheln oder Liste. |
+| **Data Quality** | Datenqualitäts-Übersicht (benötigt das Add-on Data Quality). |
+| **IP Utilization** | Auslastung von Netzwerken inklusive freier IP-Adressen. |
+| **Rack View** | Visualisierung eines Racks in Front- oder Rückansicht. |
+| **Legacy Wrapper** | Bindet klassische i-doit-Dashboard-Widgets ein. |
 
-Die API liegt unter `…/donamic_dashboard/api/` und folgt REST-Konventionen. Sie ist
-primär für die React-Oberfläche gedacht, kann aber auch von externen Integrationen
-genutzt werden (mit Session-Cookie).
+Eine ausführliche Beschreibung der Widgets finden Sie im Kapitel
+[Widgets](./bedienung/widgets.md).
 
-| Endpunkt | Methoden | Zweck |
-|---|---|---|
-| `/dashboard` | GET, POST | Liste eigener/geteilter Dashboards, Anlegen. |
-| `/dashboard/{id}` | GET, PUT, DELETE | Einzelnes Dashboard lesen, aktualisieren, löschen. |
-| `/dashboard/{id}/widget` | GET, POST | Widgets eines Dashboards. |
-| `/dashboard/{id}/widget/{wid}` | PUT, DELETE | Einzelnes Widget aktualisieren/entfernen. |
-| `/dashboard/{id}/share` | GET, POST, DELETE | Freigaben verwalten. |
-| `/dashboard/{id}/public-link` | POST, DELETE | Öffentlichen Link erzeugen/widerrufen. |
+## Glossar {#glossar}
 
-Jeder Aufruf durchläuft die Rechte-Prüfung aus dem Kapitel
-[Berechtigungen](./berechtigungen.md). 403-Antworten bedeuten fehlende Berechtigung.
+| Begriff | Bedeutung |
+|---|---|
+| **Dashboard** | Eine frei gestaltbare Übersichtsseite, die Sie mit Widgets bestücken. |
+| **Widget** | Ein einzelner Anzeigebaustein auf einem Dashboard (z. B. ein Zähler oder Diagramm). |
+| **Standard-Dashboard** | Das mit einem Stern markierte Dashboard, das beim Öffnen zuerst erscheint. |
+| **Freigabe (Share)** | Berechtigung, mit der Sie ein Dashboard für Personen oder Gruppen sichtbar machen. |
+| **Öffentlicher Link** | Ein Link, über den ein Dashboard ohne i-doit-Anmeldung aufgerufen werden kann. |
+| **Command Palette** | Schnellsuche, die Sie mit Strg+K auf jeder Seite des Add-ons öffnen. |
+| **Mandant** | Ein eigenständiger i-doit-Datenbestand; Dashboards Pro ist mandantenfähig. |

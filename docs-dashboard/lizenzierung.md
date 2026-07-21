@@ -9,9 +9,9 @@ Dieses Kapitel richtet sich an **Administratoren**.
 
 ## Lizenzverwaltung öffnen
 
-Die Lizenzverwaltung erreichen Sie über den Menüpunkt **donamic Lizenzen**
-(URL: `…/donamic/licenses`). Die Seite listet alle installierten donamic-Add-ons
-und zeigt deren aktuellen Lizenzstatus an.
+Die Lizenzverwaltung erreichen Sie über den Menüpunkt **donamic Lizenzen**. Die
+Seite listet alle installierten donamic-Add-ons und zeigt deren aktuellen
+Lizenzstatus an.
 
 ## Lizenzschlüssel hinterlegen
 
@@ -19,23 +19,18 @@ und zeigt deren aktuellen Lizenzstatus an.
 2. Suchen Sie die Zeile **donamic Dashboards Pro**.
 3. Fügen Sie den erhaltenen Lizenzschlüssel ein und speichern Sie.
 
-Der Schlüssel wird in den **Mandanten-Einstellungen** unter dem Key
-`donamic.license.data` als JSON-Objekt abgelegt — nicht in den Add-on-Tabellen.
-Dadurch überlebt ein Lizenzschlüssel auch ein vollständiges Uninstall/Reinstall
-(wie es bei jedem i-doit-Update passiert) und muss nach einem Patch nicht erneut
-aktiviert werden.
+Der Schlüssel wird zusammen mit den Mandanten-Einstellungen gespeichert und bleibt
+dadurch auch bei einem i-doit-Update erhalten. Nach einem Update oder Patch muss die
+Lizenz also nicht erneut aktiviert werden.
 
-## Online- und Offline-Validierung
+## Online- und Offline-Prüfung
 
-Das Lizenzsystem prüft in dieser Reihenfolge:
+Die Gültigkeit der Lizenz wird automatisch geprüft. Ist der Server ohne
+Internetverbindung, funktioniert die Prüfung dank eines im Lizenzschlüssel
+enthaltenen Nachweises weiterhin offline. Besteht eine Internetverbindung, wird die
+Lizenz zusätzlich online bei donamic bestätigt.
 
-1. **Lokale Lizenzdaten** mit `expires_at`-Prüfung (schnellster Pfad).
-2. **Offline JWT**: RS256-signiertes Token mit öffentlichem Schlüssel im Add-on,
-   funktioniert ohne Internet.
-3. **Online-Validierung** gegen `i-doit-trainings.de/api/addon-license-validate`
-   (bzw. `donamic.de` als Fallback).
-
-Ohne gültige Lizenz wirft das Add-on beim Öffnen eine `isys_exception_licence`, die
-dem Nutzer einen Link zur Lizenzverwaltung anbietet. Alle API-Endpunkte bleiben
-gesperrt, die Datenbanktabellen existieren aber weiter — eine Lizenzaktivierung
-reicht, um das Add-on wieder voll nutzbar zu machen.
+Ohne gültige Lizenz zeigt das Add-on beim Öffnen einen Hinweis mit einem Link zur
+Lizenzverwaltung an; die Dashboards lassen sich in diesem Fall nicht nutzen. Ihre
+bereits angelegten Dashboards bleiben aber erhalten — sobald eine gültige Lizenz
+hinterlegt ist, steht wieder alles wie gewohnt zur Verfügung.

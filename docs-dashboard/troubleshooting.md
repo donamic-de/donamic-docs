@@ -11,14 +11,15 @@ sidebar_position: 7
 | Lizenz-Fehlermeldung beim Öffnen | Kein gültiger Lizenzschlüssel hinterlegt oder Schlüssel abgelaufen. | Über **donamic Lizenzen** aktualisieren. |
 | Widget zeigt keine Daten | Falsche Objekttyp-Auswahl oder Nutzer hat keine Leserechte auf den Objekttyp. | Widget-Konfiguration und CMDB-Rechte prüfen. |
 | Drag-and-Drop funktioniert nicht | JavaScript-Fehler (Browser-Konsole prüfen); ggf. Browser-Cache leeren. | Cache leeren, Konsolen-Log an Support senden. |
-| Startseite wird nicht ersetzt | Einstellung `gui.donamic-dashboard.use-as-homepage` nicht aktiviert oder kein Standard-Dashboard markiert. | Einstellung setzen und im Dashboard den Stern-Eintrag aktivieren. |
-| Report-Widget zeigt Fehler | Report existiert nicht mehr oder Nutzer hat keinen Zugriff. | Report-Id in Widget-Konfiguration prüfen. |
+| Startseite wird nicht ersetzt | Option „Dashboards Pro als Startseite" nicht aktiviert oder kein Standard-Dashboard markiert. | Einstellung in den Benutzer-Einstellungen setzen und im Dashboard den Stern-Eintrag aktivieren. |
+| Report-Widget zeigt Fehler | Report existiert nicht mehr oder Nutzer hat keinen Zugriff. | Ausgewählten Report in der Widget-Konfiguration prüfen. |
 
 ## Log-Dateien
 
-- i-doit-Logs liegen unter `log/` im i-doit-Installationsverzeichnis.
-- Add-on-spezifische Fehler werden mit Prefix `[donamic_dashboard]` geloggt.
-- PHP-Fehler landen im PHP-Error-Log (konfiguriert in der `php.ini`).
+Für die Fehlersuche durch den Support oder Ihre Administratoren stehen die
+i-doit-Protokolldateien zur Verfügung. Sie liegen im Ordner `log/` innerhalb der
+i-doit-Installation. Meldungen des Add-ons sind dort mit dem Kennzeichen
+`[donamic_dashboard]` versehen.
 
 ## Support-Kontakt
 

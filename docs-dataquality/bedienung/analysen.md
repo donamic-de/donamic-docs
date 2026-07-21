@@ -20,7 +20,7 @@ CMDB-Struktur.
 ## Veraltete Objekte (Stale Objects)
 
 Objekte, die seit X Monaten nicht mehr aktualisiert wurden. Pro Eintrag lässt sich das
-**Archivieren** (`archiveStaleObject`) ausführen.
+**Archivieren** ausführen.
 
 :::warning
 Archivieren und Löschen erfordern das Recht **Administrieren**. Die Aktion wirkt sofort
@@ -57,8 +57,8 @@ versehentlich gesetzte Ausnahmen entfernen oder bestehende kommentieren.
 Findet Dialog-Werte (z. B. in Custom-Listen), die:
 
 - ungenutzt sind → zur **Löschung** vorgeschlagen werden,
-- doppelt mit anderen Werten existieren → **Umziehen** der Referenzen auf einen
-  Hauptwert (`dialogReassignValue`).
+- doppelt mit anderen Werten existieren → **Umziehen** aller Verweise auf einen
+  gemeinsamen Hauptwert.
 
 :::warning
 Beide Aktionen erfordern **Administrieren** und ändern den Bestand unwiderruflich.

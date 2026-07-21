@@ -15,19 +15,18 @@ Dieses Kapitel richtet sich an **Administratoren**.
 | i-doit Core-Version | **>= 30** |
 | PHP | >= 8.0 (analog zu i-doit) |
 | Browser | Aktuelle Version von Firefox, Chrome, Edge oder Safari |
-| Lizenz | Gültige donamic-Lizenz für `donamic_dataquality` |
+| Lizenz | Gültige donamic-Lizenz für Data Quality |
 
-Das Add-on nutzt React (im Frontend mitgeliefert), Symfony Routing und das i-doit
-Modul-System. Eine laufende MySQL/MariaDB des i-doit-Mandanten ist zwingend — eigene
-Datenbankverbindungen werden **nicht** geöffnet. Die regelmäßige Auswertung läuft auf
-Knopfdruck oder über einen Cron-Job (siehe [Konfiguration](./konfiguration.md)).
+Das Add-on nutzt ausschließlich die Datenbank Ihres i-doit-Mandanten; es sind keine
+zusätzlichen Server oder Dienste erforderlich. Die regelmäßige Auswertung läuft auf
+Knopfdruck oder zeitgesteuert (siehe [Konfiguration](./konfiguration.md)).
 
 ## ZIP-Paket hochladen
 
 1. Melden Sie sich in i-doit als Administrator an.
 2. Öffnen Sie **Verwaltung → Module → Add-on Uploader**.
 3. Laden Sie das ausgelieferte ZIP-Paket `donamic_dataquality-v<version>.zip` hoch.
-4. i-doit entpackt das Add-on nach `src/classes/modules/donamic_dataquality/`.
+4. i-doit entpackt und installiert das Add-on automatisch.
 
 ## Modul aktivieren
 
@@ -35,12 +34,10 @@ Knopfdruck oder über einen Cron-Job (siehe [Konfiguration](./konfiguration.md))
 2. Suchen Sie den Eintrag **donamic Data Quality** und klicken Sie auf **Installieren**.
 3. Nach der Installation ist das Modul automatisch aktiviert.
 
-Während der Installation werden neun Datenbank-Tabellen angelegt (siehe
-[Anhang](./anhang.md#datenbanktabellen)) und ein Standard-Profil **Default** mit
-täglicher Auswertung um 08:00 Uhr (Benachrichtigungen deaktiviert) eingerichtet.
-Zusätzlich registriert das Add-on eine globale Kategorie **Datenqualität**
-(`C__CATG__DONAMIC_DQ_SCORE`) und weist sie allen aktiven Objekttypen zu — diese
-Kategorie zeigt pro Objekt den aktuellen DQ-Score.
+Während der Installation richtet das Add-on ein Standard-Profil **Default** mit
+täglicher Auswertung um 08:00 Uhr (Benachrichtigungen deaktiviert) ein. Zusätzlich
+ergänzt es eine globale Kategorie **Datenqualität** und weist sie allen aktiven
+Objekttypen zu — diese Kategorie zeigt pro Objekt den aktuellen Score.
 
 ## Smoke-Test
 

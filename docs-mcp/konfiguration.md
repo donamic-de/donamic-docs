@@ -8,20 +8,18 @@ sidebar_position: 3
 ## Empfohlen: Admin Center (UI)
 
 Nach der Installation findet sich unter **Verwaltung → Add-ons → MCP Konfiguration**
-ein Formular für URL, API-Key, Benutzername und Passwort. Die Werte werden in
-`isys_settings` abgelegt und vom MCP-Server (HTTP-Endpunkt und CLI) automatisch geladen.
+ein Formular für URL, API-Key, Benutzername und Passwort. Die Werte werden gespeichert
+und vom MCP-Server automatisch geladen.
 
 Beim ersten Aufruf der Konfigurations-Seite sind URL und API-Key bereits vorausgefüllt:
 
-- **URL** kommt aus i-doits eigener Systemeinstellung `system.base.uri` (Mandant →
-  „i-doit-Adresse"). Das Feld ist **read-only**; nur wenn das MCP-Add-on auf eine andere
-  i-doit-Instanz zeigen soll, kann es per „URL manuell überschreiben"-Checkbox aktiviert
-  werden.
-- **API-Key** kommt aus `isys_mandator.isys_mandator__apikey` des aktuellen Mandanten
-  und ist **nicht änderbar**. Grund: n8n adressiert den Mandanten ausschließlich über
-  diesen Schlüssel — manuelles Überschreiben würde versehentlich den falschen Mandanten
-  ansprechen. Für Multi-Mandanten-Setups die Konfigurationsseite im jeweiligen Mandanten
-  aufrufen.
+- **URL** kommt aus der i-doit-Systemeinstellung „i-doit-Adresse" des Mandanten. Das
+  Feld ist **schreibgeschützt**; nur wenn das MCP-Add-on auf eine andere i-doit-Instanz
+  zeigen soll, kann es per „URL manuell überschreiben"-Checkbox aktiviert werden.
+- **API-Key** ist der Schlüssel des aktuellen Mandanten und **nicht änderbar**. Grund:
+  KI-Clients wie n8n adressieren den Mandanten ausschließlich über diesen Schlüssel —
+  manuelles Überschreiben würde versehentlich den falschen Mandanten ansprechen. Für
+  Multi-Mandanten-Setups die Konfigurationsseite im jeweiligen Mandanten aufrufen.
 
 In den meisten Fällen reicht ein Klick auf **Speichern**.
 
@@ -31,10 +29,9 @@ erneuert sie bei Ablauf.
 
 ## Multi-Mandanten-Setup
 
-i-doit Pro speichert API-Keys **pro Mandant** in der Spalte `isys_mandator__apikey` der
-`isys_mandator`-Tabelle. Jeder Mandant hat einen eigenen Schlüssel. Der MCP-Server
-unterscheidet die Mandanten **automatisch** anhand des verwendeten Keys — kein separater
-Tenant-Header nötig.
+i-doit Pro vergibt API-Keys **pro Mandant** — jeder Mandant hat einen eigenen
+Schlüssel. Der MCP-Server unterscheidet die Mandanten **automatisch** anhand des
+verwendeten Keys — kein separater Tenant-Header nötig.
 
 | Mandant | API-Key (gekürzt) | Verwendung in n8n |
 |---|---|---|
@@ -50,10 +47,10 @@ Pro aber durch die Key-zugeordnete Mandanten-ID übersteuert.
 
 ## Lade-Reihenfolge
 
-1. **Admin-UI** (`isys_settings`, höchste Priorität bei vollständiger Konfiguration)
+1. **Admin-UI** (die auf der Konfigurationsseite gespeicherten Werte, höchste
+   Priorität bei vollständiger Konfiguration)
 2. **Umgebungsvariablen** — überschreiben einzelne Felder (z. B. `IDOIT_PASSWORD`)
-3. **Automatische API-Key-Suche** aus der i-doit-Datenbank (Fallback für
-   Container-Setups)
+3. **Automatische API-Key-Ermittlung** aus i-doit (Fallback, wenn kein Key gesetzt ist)
 
 ## Umgebungsvariablen (extern, optional)
 

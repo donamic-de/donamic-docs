@@ -3,42 +3,49 @@
     "id": "dashboard",
     "addonDir": "donamic_dashboard",
     "label": "Dashboards Pro",
+    "version": "1.1.0",
     "description": "Individuelle Dashboards mit Widgets, Kennzahlen und Diagrammen für die CMDB."
   },
   {
     "id": "dataquality",
     "addonDir": "donamic_dataquality",
     "label": "Data Quality",
+    "version": "1.4.0",
     "description": "Datenqualität überwachen: Compliance-Score, Regelwerk und Bereinigungs-Workflows."
   },
   {
     "id": "disposal",
     "addonDir": "donamic_disposal",
     "label": "Disposal",
+    "version": "1.2.11",
     "description": "Strukturierter Entsorgungs-Workflow für ausgemusterte Objekte."
   },
   {
     "id": "inheritance",
     "addonDir": "donamic_inheritance",
     "label": "Inheritance",
+    "version": "1.3.11",
     "description": "Attribute entlang von Beziehungen automatisch vererben."
   },
   {
     "id": "anonymizer",
     "addonDir": "donamic_anonymizer",
     "label": "Anonymizer",
+    "version": "0.11",
     "description": "Mandanten-Daten für Test- und Demozwecke anonymisieren."
   },
   {
     "id": "mcp",
     "addonDir": "donamic_idoit_mcp",
     "label": "i-doit MCP Server",
+    "version": "1.7.2",
     "description": "KI-Anbindung an i-doit über das Model-Context-Protocol."
   },
   {
     "id": "design",
     "addonDir": "donamic_design",
     "label": "Design",
+    "version": "1.0.1",
     "description": "Zentrales Theming und Design-System für die donamic Add-ons."
   }
 ]

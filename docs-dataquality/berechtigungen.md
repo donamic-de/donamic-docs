@@ -15,36 +15,33 @@ Quality** freigegeben.
 
 | Berechtigung | Unterrecht | Wirkung |
 |---|---|---|
-| **Anzeigen** (`dataquality_view`) | Ansehen | Liest alle Auswertungs- und Übersichtsdaten: Compliance-Score, Regelwerk anzeigen, Kategorie-Nutzung, Stale-Objects-Liste etc. **Keine Änderungen.** |
-| **Bearbeiten** (`dataquality_edit`) | Bearbeiten | Erlaubt Änderungen am Regelwerk, an Benachrichtigungs-Konfigurationen, Empfängern, Ausnahmen (Exemptions) sowie das Anstoßen von Auswertungen. |
-| **Administrieren** (`dataquality_admin`) | Supervisor | Schaltet **destruktive Operationen** frei: Objekte archivieren, Objekttypen verstecken, Dialog-Werte löschen oder umziehen, Kategorie-Zuweisungen entfernen. |
+| **Anzeigen** | Ansehen | Liest alle Auswertungs- und Übersichtsdaten: Compliance-Score, Regelwerk, Kategorie-Nutzung, veraltete Objekte usw. **Keine Änderungen.** |
+| **Bearbeiten** | Bearbeiten | Erlaubt Änderungen am Regelwerk, an Benachrichtigungen, Empfängern und Ausnahmen sowie das Anstoßen von Auswertungen. |
+| **Administrieren** | Supervisor | Schaltet **verändernde Bereinigungs-Aktionen** frei: Objekte archivieren, Objekttypen verstecken, Dialog-Werte löschen oder umziehen, Kategorie-Zuweisungen entfernen. |
 
 ## Welche Aktion verlangt welches Recht?
-
-Die zentrale Zuordnung steht in `ApiAdapter::AUTH_MAP` und entscheidet bei jedem
-API-Aufruf, ob er durchgelassen wird:
 
 | Aktion | Benötigtes Recht |
 |---|---|
 | Übersicht und alle Listen-Sichten öffnen | Anzeigen |
 | Regelwerk anzeigen, Drill-Down öffnen | Anzeigen |
-| **Regeln speichern** (`saveRules`) | Bearbeiten |
-| **Benachrichtigungs-Konfig speichern** (`saveNotificationConfig`) | Bearbeiten |
-| **Empfänger speichern** (`saveRecipients`) | Bearbeiten |
-| **Auswertung starten** (`triggerEvaluation`) | Bearbeiten |
-| **Einzelnes Objekt auswerten** (`evaluateObject`) | Bearbeiten |
-| **Inline-Quickfix** (`quickSave` aus Drill-Down) | Bearbeiten |
-| **Regel-Ausnahme setzen/entfernen** (`exempt` / `unexempt`) | Bearbeiten |
-| **Ganz-Objekt-Ausnahme** (`exemptObject` / `unexemptObject`) | Bearbeiten |
-| **Kategorie aus Auswertung ausschließen** (`toggleCategoryExclusion`) | Bearbeiten |
-| **Objekttyp aus Auswertung verstecken** (`hideObjectType`) | Administrieren |
-| **Veraltetes Objekt archivieren** (`archiveStaleObject`) | Administrieren |
-| **Kategorie-Zuweisung entfernen** (`removeCategoryAssignment`) | Administrieren |
-| **Dialog-Wert löschen** (`dialogExecuteDelete`) | Administrieren |
-| **Dialog-Wert umziehen** (`dialogReassignValue`) | Administrieren |
+| **Regeln speichern** | Bearbeiten |
+| **Benachrichtigungs-Einstellungen speichern** | Bearbeiten |
+| **Empfänger speichern** | Bearbeiten |
+| **Auswertung starten** | Bearbeiten |
+| **Einzelnes Objekt auswerten** | Bearbeiten |
+| **Inline-Schnellkorrektur im Drill-Down** | Bearbeiten |
+| **Regel-Ausnahme setzen/entfernen** | Bearbeiten |
+| **Ganzes Objekt von Regeln ausnehmen** | Bearbeiten |
+| **Kategorie aus Auswertung ausschließen** | Bearbeiten |
+| **Objekttyp aus Auswertung verstecken** | Administrieren |
+| **Veraltetes Objekt archivieren** | Administrieren |
+| **Kategorie-Zuweisung entfernen** | Administrieren |
+| **Dialog-Wert löschen** | Administrieren |
+| **Dialog-Wert umziehen** | Administrieren |
 
-Eine fehlende Berechtigung führt zu einer 403-Antwort der API; die Oberfläche blendet
-die entsprechenden Buttons aus.
+Fehlt einem Nutzer die nötige Berechtigung, blendet die Oberfläche die entsprechenden
+Schaltflächen aus und die Aktion wird abgewiesen.
 
 ## Typische Rollen-Beispiele
 

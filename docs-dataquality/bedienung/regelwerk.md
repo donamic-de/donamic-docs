@@ -15,16 +15,16 @@ besteht aus:
 
 | Regeltyp | Bedeutung |
 |---|---|
-| `filled` / `required` | Feld **muss** ausgefüllt sein. |
-| `not_filled` | Feld darf **nicht** ausgefüllt sein. |
-| `specific_value` | Dialog-Feld muss einen bestimmten Wert haben. |
-| `min_entries` | Mehrwertige Kategorie muss mindestens **N Einträge** enthalten. |
-| `entry_filled` | Mehrwertige Kategorie: **mindestens ein Eintrag** mit gefülltem Feld. |
-| `entry_with_value` | Mehrwertige Kategorie: mindestens ein Eintrag mit Feld = bestimmter Wert. |
-| `entry_not_filled` | Mehrwertige Kategorie: **kein** Eintrag mit gefülltem Feld. |
+| **Muss ausgefüllt sein** | Das Feld **muss** einen Wert enthalten. |
+| **Darf nicht ausgefüllt sein** | Das Feld muss **leer** bleiben. |
+| **Bestimmter Wert** | Ein Auswahlfeld muss einen bestimmten Wert haben. |
+| **Mindestanzahl Einträge** | Eine mehrwertige Kategorie muss mindestens **N Einträge** enthalten. |
+| **Mindestens ein Eintrag gefüllt** | Eine mehrwertige Kategorie: mindestens ein Eintrag hat das Feld gefüllt. |
+| **Mindestens ein Eintrag mit Wert** | Eine mehrwertige Kategorie: mindestens ein Eintrag hat das Feld auf einem bestimmten Wert. |
+| **Kein Eintrag gefüllt** | Eine mehrwertige Kategorie: **kein** Eintrag hat das Feld gefüllt. |
 
-Über das Speichern-Symbol werden alle Regeln des Objekttyps zusammen persistiert. Im
-Hintergrund läuft danach optional eine sofortige Neuauswertung.
+Über das Speichern-Symbol werden alle Regeln des Objekttyps gemeinsam gespeichert.
+Danach kann direkt eine erneute Auswertung angestoßen werden.
 
 ## Analyse (Drill-Down)
 
@@ -33,8 +33,8 @@ Sie zeigt:
 
 - Alle Objekte des Typs mit individuellem Score
 - Pro Objekt: welche Regeln verletzt sind
-- **Inline-Quickfix**: fehlende Werte direkt in der Tabelle eintragen (`quickSave`).
-- Aktionen: Regel ausnehmen (`exempt`), Objekt komplett ausnehmen (`exemptObject`).
+- **Inline-Schnellkorrektur**: fehlende Werte direkt in der Tabelle eintragen.
+- Aktionen: einzelne Regel für ein Objekt ausnehmen oder das Objekt komplett ausnehmen.
 - **Bulk-Aktionen**: Über die Mehrfachauswahl (Checkboxen pro Zeile) lassen sich mehrere
   Objekte gleichzeitig bearbeiten — z. B. als Sammel-Ausnahme markieren. Details siehe
   [Komfortfunktionen](./komfortfunktionen.md).

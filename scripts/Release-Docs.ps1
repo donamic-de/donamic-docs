@@ -1,18 +1,24 @@
 <#
 .SYNOPSIS
-    Friert die aktuelle Dokumentation eines Add-ons als Docusaurus-Version ein.
+    Archiviert den aktuellen Doku-Stand eines Add-ons als feste Version.
 
 .DESCRIPTION
+    Modell "aktuell = live": Die bearbeitbare Doku in docs-<id>/ ist immer die
+    Live-Fassung unter /<id>/. Dieses Skript friert den JETZIGEN Stand als
+    Archiv-Version ein, BEVOR ein neuer Versionszyklus beginnt — die alte Fassung
+    bleibt so dauerhaft unter /<id>/<x.y.z>/ auffindbar, während docs-<id>/
+    live weiter zur nächsten Version editiert wird.
+
+    Ablauf beim Release:
+      1. Dieses Skript laufen lassen -> archiviert den ausscheidenden Stand.
+      2. In addons.json das Feld "version" des Add-ons auf die neue Nummer setzen
+         (steuert den Versions-Badge der Live-Doku).
+      3. docs-<id>/ auf die neue Version aktualisieren, committen, pushen.
+
     Liest die Version aus der package.json des Add-ons (im i-doit-addons-Repo),
-    löst über docs-site/addons.json die zugehörige Docusaurus-Plugin-ID auf und
-    erzeugt einen Versions-Snapshot (docs:version:<pluginId> <version>).
-
-    Der Snapshot landet in <pluginId>_versioned_docs/version-<x.y.z>/ und wird
-    dadurch zur ausgelieferten Version unter /<id>/. Die weiterhin bearbeitbare
-    Arbeitsfassung liegt danach unter /<id>/next/.
-
-    Nach dem Lauf müssen die neuen versioned_*-Ordner committet und gepusht
-    werden — der Push löst das FTP-Deploy per GitHub Action aus.
+    löst über addons.json die zugehörige Plugin-ID auf und erzeugt den Snapshot
+    (docs:version:<pluginId> <version>) in <pluginId>_versioned_docs/version-<x.y.z>/.
+    Das Ergebnis muss committet und gepusht werden (löst das FTP-Deploy aus).
 
 .PARAMETER AddonName
     Verzeichnisname des Add-ons, z. B. donamic_dashboard.
@@ -113,8 +119,10 @@ finally {
 }
 
 Write-Host ""
-Write-Host "Fertig. Doku-Version $Version für '$pluginId' eingefroren." -ForegroundColor Green
+Write-Host "Fertig. Doku-Stand als Version $Version für '$pluginId' archiviert." -ForegroundColor Green
 Write-Host "Nächste Schritte:" -ForegroundColor Yellow
-Write-Host "  git add ${pluginId}_versioned_docs ${pluginId}_versioned_sidebars ${pluginId}_versions.json"
-Write-Host "  git commit -m `"docs($pluginId): Version $Version veroeffentlicht`""
-Write-Host "  git push   # loest das FTP-Deploy aus"
+Write-Host "  1. In addons.json das Feld 'version' von '$pluginId' auf die neue Nummer setzen."
+Write-Host "  2. docs-$pluginId/ auf die neue Version aktualisieren."
+Write-Host "  3. git add ${pluginId}_versioned_docs ${pluginId}_versioned_sidebars ${pluginId}_versions.json addons.json docs-$pluginId"
+Write-Host "     git commit -m `"docs($pluginId): Version $Version archiviert`""
+Write-Host "     git push   # loest das FTP-Deploy aus"

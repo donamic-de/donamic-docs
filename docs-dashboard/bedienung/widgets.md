@@ -36,5 +36,4 @@ Jedes Widget bringt eine eigene Konfigurations-Maske mit. Beispiele:
 - **Rack View** benötigt ein ausgewähltes Rack-Objekt und die gewünschte Ansicht
   (Front/Rückseite).
 
-Die Konfiguration wird pro Widget-Instanz in `donamic_dashboard_widget__config` als
-JSON gespeichert.
+Ihre Einstellungen werden pro Widget gespeichert und bleiben dauerhaft erhalten.

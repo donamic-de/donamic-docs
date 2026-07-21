@@ -5,68 +5,36 @@ sidebar_position: 8
 
 # Anhang
 
-## Datenbanktabellen {#datenbanktabellen}
+## Kennzahlen im Überblick
 
-Alle Tabellen liegen in der Mandanten-Datenbank.
+Diese Werte begegnen Ihnen in der Übersicht und den Auswertungen:
 
-| Tabelle | Zweck |
+| Kennzahl | Bedeutung |
 |---|---|
-| `donamic_dq_profile` | Profile: Aktivierung, Benachrichtigungs-Schedule und -Zeit. Standardmäßig wird ein Profil **Default** angelegt. |
-| `donamic_dq_rule` | Regel-Definitionen pro Objekttyp/Kategorie/Attribut mit Regeltyp und JSON-Konfiguration. |
-| `donamic_dq_profile_recipient` | Benachrichtigungs-Empfänger (Personen-Objekte oder Gruppen). |
-| `donamic_dq_result` | Cache: pro Objekt + Regel das letzte Auswertungs-Ergebnis (compliant ja/nein). |
-| `donamic_dq_snapshot` | Trend-Daten: täglicher Compliance-Prozentsatz für den Verlaufs-Chart. |
-| `donamic_dq_exemption` | Ausnahmen auf **Regel-Ebene** pro Objekt (Regel X gilt für Objekt Y nicht). |
-| `donamic_dq_object_exemption` | Ausnahmen auf **Objekt-Ebene** (Objekt Y ist komplett von allen Regeln ausgenommen). |
-| `donamic_dq_typeconfig` | Per-Objekttyp-Konfiguration (z. B. versteckte Typen, Sonderregeln). |
-| `isys_catg_donamic_dq_score_list` | Datenhaltung der globalen Kategorie **Datenqualität** — pro Objekt der aggregierte Score. |
+| **Compliance-Score** | Anteil der bestandenen Prüfungen an allen durchgeführten Prüfungen, in Prozent. 100 % bedeutet: alle Regeln sind auf allen geprüften Objekten erfüllt. |
+| **Anzahl Regeln** | Wie viele Regeln aktuell im Regelwerk definiert sind. |
+| **Geprüfte Objekte** | Anzahl der Objekte, die bei der letzten Auswertung gegen die Regeln geprüft wurden. |
+| **Verstöße** | Anzahl der Fälle, in denen eine Regel auf einem Objekt nicht erfüllt ist. |
+| **Trend** | Veränderung des Compliance-Scores gegenüber dem Vortag. |
+| **Snapshot** | Täglich gespeicherter Compliance-Stand, aus dem sich der Verlaufs-Chart ergibt. |
 
-Beim Deinstallieren werden die Add-on-Tabellen sowie die Custom-Kategorie
-`C__CATG__DONAMIC_DQ_SCORE` und der zugehörige Benachrichtigungs-Typ entfernt. Die
-Lizenzdaten in den Mandanten-Einstellungen (`donamic.license.data`) bleiben erhalten,
-damit ein i-doit-Update keine erneute Aktivierung erfordert; sie können bei Bedarf über
-die Lizenzverwaltung entfernt werden.
+## Glossar
 
-## API-Endpunkte (Überblick) {#api-endpunkte}
-
-Die API liegt unter `…/donamic_dataquality/api/`. Sie ist primär für die
-React-Oberfläche gedacht, kann aber auch für externe Integrationen genutzt werden (mit
-Session-Cookie). Jeder Aufruf durchläuft die Rechte-Prüfung aus dem Kapitel
-[Berechtigungen](./berechtigungen.md).
-
-### Lesen (benötigt: Anzeigen)
-
-| Endpunkt | Zweck |
+| Begriff | Erklärung |
 |---|---|
-| `getObjectTypes` | Verfügbare Objekttypen mit Anzahl Regeln. |
-| `getCategoriesForType` | Kategorien eines Objekttyps für den Regel-Editor. |
-| `getAttributesForCategory` | Attribute einer Kategorie. |
-| `getDialogValues` | Mögliche Dialog-Werte (für `specific_value`-Regeln). |
-| `getRules` | Regelwerk eines Objekttyps. |
-| `getOverview` | KPI-Zahlen der Übersicht. |
-| `getAnalysis` | Drill-Down-Daten pro Objekttyp. |
-| `getNotificationConfig` / `getRecipients` | Profil- und Empfängerdaten. |
-| `getExemptions` | Aktive Ausnahmen. |
+| **Regel** | Eine Vorgabe für ein bestimmtes Feld eines Objekttyps, z. B. „Bei Servern muss die Inventarnummer gefüllt sein". |
+| **Regelwerk** | Die Gesamtheit aller definierten Regeln. |
+| **Regeltyp** | Die Art der Prüfung — z. B. „muss ausgefüllt sein" oder „muss einen bestimmten Wert haben". |
+| **Compliance** | Die Erfüllung der definierten Regeln durch den Datenbestand. |
+| **Ausnahme (Exemption)** | Eine bewusst gesetzte Ausnahme, mit der eine Regel für ein bestimmtes Objekt (oder ein Objekt komplett) von der Bewertung ausgenommen wird. |
+| **Veraltete Objekte (Stale Objects)** | Objekte, die seit längerer Zeit nicht mehr aktualisiert wurden. |
+| **Drill-Down** | Der Wechsel von einer zusammengefassten Sicht in die Detailansicht einzelner Objekte. |
+| **Profil** | Eine Einstellungs-Sammlung für Zeitplan und Benachrichtigungen der Auswertung. |
+| **Globale Kategorie „Datenqualität"** | Die zusätzliche Kategorie, die an jedem Objekt den aktuellen Score anzeigt. |
 
-### Schreiben (benötigt: Bearbeiten)
+## Deinstallation
 
-| Endpunkt | Zweck |
-|---|---|
-| `saveRules` | Regelwerk speichern. |
-| `saveNotificationConfig` / `saveRecipients` | Profil/Empfänger speichern. |
-| `triggerEvaluation` | Massen-Auswertung starten. |
-| `evaluateObject/{id}` | Auswertung für ein einzelnes Objekt. |
-| `quickSave` | Inline-Quickfix aus dem Drill-Down. |
-| `exempt` / `unexempt` | Regel-Ausnahme setzen/entfernen. |
-| `exemptObject` / `unexemptObject` | Ganz-Objekt-Ausnahme. |
-| `toggleCategoryExclusion` | Kategorie aus Auswertung ausschließen. |
-
-### Administrieren (benötigt: Administrieren)
-
-| Endpunkt | Zweck |
-|---|---|
-| `hideObjectType` | Objekttyp aus Auswertung verstecken. |
-| `archiveStaleObject` | Veraltetes Objekt archivieren. |
-| `removeCategoryAssignment` | Kategorie-Zuweisung von einem Objekttyp entfernen. |
-| `dialogExecuteDelete` | Dialog-Wert löschen. |
-| `dialogReassignValue` | Dialog-Wert umziehen. |
+Beim Deinstallieren entfernt das Add-on seine Auswertungsdaten sowie die Kategorie
+**Datenqualität** und den zugehörigen Benachrichtigungs-Typ. Ihre Lizenzdaten bleiben in
+den Mandanten-Einstellungen erhalten, damit ein i-doit-Update keine erneute Aktivierung
+erfordert. Bei Bedarf können Sie die Lizenz über die Lizenzverwaltung entfernen.

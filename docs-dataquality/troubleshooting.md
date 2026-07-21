@@ -13,14 +13,15 @@ sidebar_position: 7
 | Score in einer Objekt-Kategorie ist veraltet | Letzte Massen-Auswertung liegt zurück. | Button **Jetzt auswerten** am Objekt oder Cron-Job neu anstoßen. |
 | Inline-Quickfix wirkt nicht | Fehlendes `Bearbeiten`-Recht oder Validierungsfehler im Feld. | Recht prüfen; Browser-Konsole auf Fehlermeldung ansehen. |
 | Archivieren scheitert mit 403 | Nutzer hat kein `Administrieren`-Recht. | Rolle anpassen (siehe [Berechtigungen](./berechtigungen.md)). |
-| Eine Regel wird scheinbar ignoriert | Multiselect-Felder (z. B. Tags) werden absichtlich übersprungen — eine Spaltenprüfung würde immer TRUE liefern. | Andere Regelart wählen oder Custom-Field-Regel verwenden. |
+| Eine Regel wird scheinbar ignoriert | Mehrfachauswahl-Felder (z. B. Tags) werden bewusst nicht geprüft, da eine einfache Ausgefüllt-Prüfung dort kein aussagekräftiges Ergebnis liefert. | Andere Regelart wählen oder eine Regel auf einem geeigneteren Feld verwenden. |
 | Snapshots sehen alle gleich aus | Trigger läuft seltener als gewünscht. | Cron-Frequenz erhöhen oder manuell anstoßen. |
 
 ## Log-Dateien
 
-- i-doit-Logs liegen unter `log/` im i-doit-Installationsverzeichnis.
-- Add-on-spezifische Fehler werden mit Prefix `[donamic_dataquality]` geloggt.
-- PHP-Fehler landen im PHP-Error-Log (konfiguriert in der `php.ini`).
+Bei tiefergehenden Problemen helfen die Protokolldateien Ihrer i-doit-Installation
+weiter. Meldungen des Add-ons sind darin eindeutig als Data-Quality-Einträge
+gekennzeichnet. Ihr i-doit-Administrator findet die Protokolle im Log-Verzeichnis der
+i-doit-Installation.
 
 ## Support-Kontakt
 

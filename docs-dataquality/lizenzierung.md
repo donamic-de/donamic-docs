@@ -18,21 +18,17 @@ alle installierten donamic-Add-ons und zeigt deren aktuellen Lizenzstatus an.
 2. Suchen Sie die Zeile **donamic Data Quality**.
 3. Fügen Sie den erhaltenen Lizenzschlüssel ein und speichern Sie.
 
-Der Schlüssel wird in den **Mandanten-Einstellungen** unter dem Key
-`donamic.license.data` als JSON-Objekt abgelegt — nicht in den Add-on-Tabellen. Er
-überlebt damit ein vollständiges Uninstall/Reinstall (wie bei jedem i-doit-Update) und
-muss nach einem Patch nicht erneut aktiviert werden.
+Der Schlüssel wird in den **Mandanten-Einstellungen** von i-doit hinterlegt — getrennt
+von den Auswertungsdaten des Add-ons. Dadurch überlebt er ein i-doit-Update oder eine
+Neuinstallation des Add-ons und muss nach einem Patch nicht erneut aktiviert werden.
 
-## Online- und Offline-Validierung
+## Online- und Offline-Betrieb
 
-Das Lizenzsystem prüft in dieser Reihenfolge:
+Die Lizenzprüfung funktioniert sowohl mit als auch ohne Internetverbindung: Ein im
+Add-on hinterlegter Prüfmechanismus erlaubt den Betrieb auch in abgeschotteten Umgebungen
+ohne Online-Zugriff. Besteht eine Internetverbindung, wird der Schlüssel zusätzlich
+gegen den donamic-Lizenzserver abgeglichen.
 
-1. **Lokale Lizenzdaten** mit `expires_at`-Prüfung.
-2. **Offline JWT**: RS256-signiertes Token mit öffentlichem Schlüssel im Add-on —
-   funktioniert ohne Internet.
-3. **Online-Validierung** gegen `i-doit-trainings.de/api/addon-license-validate`
-   (Fallback `donamic.de`).
-
-Ohne gültige Lizenz wirft das Add-on beim Öffnen eine `isys_exception_licence`. Alle
-API-Endpunkte bleiben gesperrt; die Datenbank-Tabellen bleiben erhalten, sodass nach
-erneuter Aktivierung der Bestand unverändert weiter genutzt werden kann.
+Ohne gültige Lizenz zeigt das Add-on beim Öffnen eine Fehlermeldung an und bleibt
+gesperrt. Ihre bereits erfassten Regeln und Auswertungsdaten bleiben dabei erhalten und
+stehen nach erneuter Aktivierung unverändert zur Verfügung.

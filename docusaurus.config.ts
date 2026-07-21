@@ -14,8 +14,11 @@ import addons from './addons.json';
  * hier als auch von scripts/Release-Docs.ps1 gelesen.
  */
 
+type Addon = {id: string; version?: string};
+
 // Erzeugt die Plugin-Instanz-Definition für ein Add-on.
-function docsInstance(id: string): [string, DocsOptions] {
+function docsInstance(addon: Addon): [string, DocsOptions] {
+  const {id, version} = addon;
   return [
     '@docusaurus/plugin-content-docs',
     {
@@ -23,15 +26,21 @@ function docsInstance(id: string): [string, DocsOptions] {
       path: `docs-${id}`,
       routeBasePath: id,
       sidebarPath: './sidebars.ts',
-      // Kein "Diese Seite bearbeiten"-Link (öffentliche Doku, kein Edit-Workflow).
-      editUrl: undefined,
-      // Die aktuelle, noch nicht als Version eingefrorene Doku liegt unter /<id>/next/
-      // und trägt einen Hinweis-Banner. Sobald der erste Snapshot existiert, liefert
-      // Docusaurus automatisch die neueste Version unter /<id>/ aus.
+      // "aktuell = live": Die bearbeitbare Doku in docs-<id>/ wird direkt unter
+      // /<id>/ ausgeliefert. Wer eine Seite ändert (auch per "Bearbeiten"-Stift
+      // auf GitHub), sieht die Änderung nach dem nächsten Deploy sofort live.
+      // Ältere Stände werden bei Bedarf gezielt per scripts/Release-Docs.ps1
+      // als Version archiviert und erscheinen dann zusätzlich im Versions-Dropdown.
+      lastVersion: 'current',
+      // "Diese Seite bearbeiten"-Stift: verlinkt direkt in den GitHub-Web-Editor.
+      // versionDocsDirPath ist der Ordner der jeweiligen Version (docs-<id> für die
+      // aktuelle, <id>_versioned_docs/version-x für Archivstände), docPath die Datei.
+      editUrl: ({versionDocsDirPath, docPath}) =>
+        `https://github.com/donamic-de/donamic-docs/edit/main/${versionDocsDirPath}/${docPath}`,
       versions: {
         current: {
-          label: 'In Arbeit',
-          banner: 'unreleased',
+          // Zeigt die dokumentierte Add-on-Version als Badge über jeder Seite.
+          label: version ? `Version ${version}` : 'Aktuell',
         },
       },
     },
@@ -80,7 +89,7 @@ const config: Config = {
   ],
 
   // Eine Docs-Instanz pro Add-on, generiert aus der zentralen Registry.
-  plugins: addons.map((addon) => docsInstance(addon.id)),
+  plugins: addons.map((addon) => docsInstance(addon)),
 
   themeConfig: {
     image: 'img/logo.svg',
