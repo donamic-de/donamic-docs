@@ -35,10 +35,4 @@ Entzogene Rechte wirken sofort.
 welche Daten auf dem Dashboard sichtbar sind.
 :::
 
-:::tip Reports auf öffentlichen Dashboards
-Was bei Report-Widgets auf öffentlich geteilten Dashboards gilt (SELECT-Regel,
-Zeilen-Limit, Filter, Drilldown), fasst die Seite
-[Reports auf öffentlichen Dashboards](./reports-oeffentliches-dashboard.md) zusammen.
-:::
-
 <!-- TODO Screenshot: Teilen-Dialog mit Person-, Gruppen- und Public-Link-Sektion (docs-dashboard/img/04-sharing.png) -->

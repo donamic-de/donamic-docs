@@ -7,41 +7,6 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Dashboards Pro in verständlicher Form zusammen.
 
-## [1.4.1] — 23.07.2026
-
-### Behoben
-- Das Schließen-Kreuz (×) in den Objektlisten- und Logbuch-Fenstern sitzt jetzt sichtbar oben rechts im Fenster (zuvor war es außerhalb des sichtbaren Bereichs positioniert — Schließen war nur per Escape oder Klick daneben möglich).
-
-### Dokumentation
-- Neue Handbuch-Seite „Reports auf öffentlichen Dashboards": wann ein Report öffentlich funktioniert, wie Zeilen-Limit und Kürzung wirken, welche Filter- und Drilldown-Möglichkeiten es gibt.
-
-## [1.4.0] — 22.07.2026
-
-### Neu
-- **Klickbare Diagramme auch auf öffentlichen Dashboards:** Ein Klick auf ein Segment (z. B. im CMDB-Status- oder Objektzähler-Diagramm) öffnet jetzt auch dort die Liste der dahinterliegenden Objekte mit Typ und Status — inklusive Suche und Blättern.
-- **Präziser filtern:** Spalten mit vielen wiederkehrenden Werten (z. B. Objekttyp mit über 100 Typen) erhalten jetzt ein durchsuchbares Auswahl-Dropdown mit Mehrfachauswahl. Im Textfilter findet `=Wert` exakte Treffer — `=Server` ohne „Virtueller Server".
-
-### Behoben
-- Das IP-Auslastungs-Widget wird auf öffentlichen Dashboards jetzt vollständig auf Deutsch angezeigt.
-
-## [1.3.0] — 22.07.2026
-
-### Neu
-- **Einheitliche Filterzeile auf öffentlichen Dashboards:** Report-Tabellen bieten dort jetzt dieselben intelligenten Filter wie intern — Auswahl-Dropdown für kategoriale Spalten, Von/Bis-Datumsauswahl für Datumsspalten, Textfilter für alle übrigen. Datumsspalten sortieren öffentlich jetzt chronologisch.
-
-## [1.2.0 – 1.2.3] — 22.07.2026
-
-### Neu
-- **Diagramm-Drilldown im Report-Widget:** In den Ansichten „Chart + Tabelle" filtert ein Klick auf ein Diagramm-Segment die Tabelle auf die zugehörigen Zeilen; ein erneuter Klick hebt den Filter auf. Funktioniert intern und öffentlich, auch mit „Filter speichern".
-- **„Report bearbeiten"-Sprung:** Aus dem Widget-Optionsmenü und der Widget-Konfiguration gelangen Sie jetzt direkt in den Report-Editor (SQL-Editor bzw. Abfrage-Editor wird automatisch gewählt).
-- **Kürzungs-Hinweis:** Liefert ein Report mehr Zeilen als das eingestellte Limit, zeigt der Tabellen-Fuß jetzt „⚠ Ergebnis gekürzt" mit Erklärung.
-
-### Behoben
-- Öffentliche Dashboards zeigen Widget-Texte jetzt durchgängig auf Deutsch (zuvor konnten einzelne Beschriftungen englisch erscheinen).
-- Datumsfeld-Monitor: Die Feldauswahl zeigt jetzt die echten i-doit-Attributnamen („Vertrag > Vertragsende" statt „Vertrag > End") — einheitlich in einer Sprache.
-- Erweiterte Abfrage-Editor-Optionen (z. B. „Beziehungsobjekte mit ausgeben") gelten jetzt auch auf öffentlichen Dashboards — zuvor konnten öffentliche Reports dadurch deutlich mehr Zeilen enthalten als intern.
-- Reports mit eigenem LIMIT oder Kommentaren am Abfrage-Ende funktionieren jetzt in allen Konstellationen (Widget, Spaltenauswahl, Speichern).
-
 ## [1.1.0] — 10.07.2026
 
 ### Verbessert
