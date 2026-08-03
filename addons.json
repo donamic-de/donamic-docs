@@ -3,7 +3,7 @@
     "id": "dashboard",
     "addonDir": "donamic_dashboard",
     "label": "Dashboards Pro",
-    "version": "1.4.1",
+    "version": "1.4.4",
     "description": "Individuelle Dashboards mit Widgets, Kennzahlen und Diagrammen für die CMDB."
   },
   {

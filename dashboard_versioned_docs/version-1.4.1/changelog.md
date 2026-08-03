@@ -7,29 +7,6 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Dashboards Pro in verständlicher Form zusammen.
 
-## [1.4.4] — 03.08.2026
-
-### Sicherheit
-
-- **Objektlisten hinter Diagrammen und Kennzahlen bleiben im Umfang des Widgets.** Klickt man ein Diagramm-Segment an oder durchsucht die geöffnete Objektliste, zeigt sie ausschließlich Objekte innerhalb dessen, worauf das Widget eingestellt ist — auch bei Nutzung von Suche und Blättern, und auch auf öffentlich geteilten Dashboards. Zuvor konnte die Klick-Navigation die Einstellung des Widgets überschreiben.
-- **Zusätzliche Berechtigungsprüfungen** bei der Widget-Vorschau, der Report-Auswahl, der Personensuche im Freigabe-Dialog und beim Speichern von Layouts.
-- **Härtung der Feldauswahl** in Zahlen- und Datumsfeld-Monitoren: auswählbar sind nur noch Felder mit passendem Datentyp.
-- **Öffentliche Dashboards geben keine internen Konfigurationsdetails mehr aus.**
-- **Zusätzlicher Schutz vor Anfragen von fremden Websites.**
-- **Das Installationspaket enthält nur noch die zum Betrieb benötigten Dateien.** Frühere Versionen legten zusätzlich Dokumentations- und Entwicklerdateien in der i-doit-Installation ab; das Update entfernt diese automatisch. Das Handbuch wird seither als eigene Datei neben dem Paket ausgeliefert.
-
-### Behoben
-
-- **Widgets ließen sich in manchen Umgebungen nicht mehr speichern oder löschen** (Meldung „Cross-origin request rejected"). Betroffen waren Installationen hinter einem vorgelagerten Webserver, der die HTTPS-Verschlüsselung übernimmt. Der Schutz vor Anfragen fremder Websites bleibt erhalten.
-
-:::tip Empfehlung
-Dieses Update enthält Sicherheitsverbesserungen. Wir empfehlen die zeitnahe Installation, insbesondere wenn Sie Dashboards über öffentliche Links teilen.
-:::
-
-:::info Hinweis für Administratoren
-Widgets werten **objekttyp-bezogene CMDB-Berechtigungen einzelner Rollen nicht zusätzlich aus** — Näheres unter [Berechtigungen](berechtigungen.md#sichtbarkeit-von-objekten-in-widgets).
-:::
-
 ## [1.4.1] — 23.07.2026
 
 ### Behoben

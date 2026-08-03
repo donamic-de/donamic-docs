@@ -59,29 +59,3 @@ das Dashboard auch ohne i-doit-Login. Diese Funktion ist nur für Besitzer/Admin
 zugänglich; wer
 keinen Link erzeugen darf, kann also auch keine Daten ungewollt öffentlich machen.
 Links lassen sich jederzeit deaktivieren oder mit Ablaufdatum versehen.
-
-## Sichtbarkeit von Objekten in Widgets
-
-Die Rechte oben regeln den Zugriff auf das **Dashboard**. Davon zu unterscheiden ist,
-welche **Objekte** ein Widget anzeigt.
-
-**Widgets bleiben in ihrem eingestellten Umfang.** Öffnet man aus einem Diagramm oder
-einer Kennzahl die dahinterliegende Objektliste, zeigt sie ausschließlich Objekte
-innerhalb dessen, worauf das Widget eingestellt ist. Ein auf einen Objekttyp
-beschränktes Widget gibt über Klick-Navigation, Suche und Blättern keine anderen
-Objekte preis — in der angemeldeten Ansicht ebenso wie über einen öffentlichen Link.
-
-:::warning Objekttyp-Rechte werden nicht zusätzlich geprüft
-Widgets werten die objekttyp-bezogenen CMDB-Berechtigungen der betrachtenden Person
-**nicht** zusätzlich aus. Ein Widget zeigt die konfigurierten Daten also unabhängig
-davon, ob diese Person die betroffenen Objekttypen auch im CMDB einsehen dürfte.
-
-Daraus folgt:
-
-- Geben Sie Dashboards nur an Personen frei, die die enthaltenen Daten sehen dürfen.
-- Prüfen Sie vor dem Erzeugen eines öffentlichen Links, welche Daten die enthaltenen
-  Widgets anzeigen.
-
-Eine Auswertung der Objekttyp-Rechte in den Widgets ist für eine kommende Version
-vorgesehen.
-:::
