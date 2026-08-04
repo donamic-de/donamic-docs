@@ -21,18 +21,24 @@ Das Add-on nutzt ausschließlich die Datenbank Ihres i-doit-Mandanten; es sind k
 zusätzlichen Server oder Dienste erforderlich. Die regelmäßige Auswertung läuft auf
 Knopfdruck oder zeitgesteuert (siehe [Konfiguration](./konfiguration.md)).
 
-## ZIP-Paket hochladen
+## Add-on installieren
 
-1. Melden Sie sich in i-doit als Administrator an.
-2. Öffnen Sie **Verwaltung → Module → Add-on Uploader**.
-3. Laden Sie das ausgelieferte ZIP-Paket `donamic_dataquality-v<version>.zip` hoch.
-4. i-doit entpackt und installiert das Add-on automatisch.
+Die Installation erfolgt im **Admin-Center** von i-doit. Innerhalb der
+i-doit-Oberfläche (Verwaltung) lassen sich Add-ons weder hochladen noch
+installieren.
 
-## Modul aktivieren
+1. Rufen Sie das Admin-Center auf: `https://<ihre-i-doit-URL>/admin/`.
+2. Melden Sie sich mit Ihren Admin-Center-Zugangsdaten an (eigenes Konto aus
+   der `config.inc.php`, unabhängig vom i-doit-Login).
+3. Öffnen Sie den Bereich **Add-ons** und klicken Sie auf
+   **Install/update Add-on**.
+4. Wählen Sie das ausgelieferte ZIP-Paket `donamic_dataquality-v<version>.zip`
+   aus, legen Sie unter **Activate for tenant** fest, ob das Add-on für einen
+   einzelnen Mandanten oder für **All tenants** installiert wird, und klicken
+   Sie auf **Upload and install**.
 
-1. Öffnen Sie **Verwaltung → Module-Verwaltung**.
-2. Suchen Sie den Eintrag **donamic Data Quality** und klicken Sie auf **Installieren**.
-3. Nach der Installation ist das Modul automatisch aktiviert.
+Das Admin-Center entpackt das Paket und installiert das Add-on für die
+gewählten Mandanten; danach ist es automatisch aktiviert.
 
 Während der Installation richtet das Add-on ein Standard-Profil **Default** mit
 täglicher Auswertung um 08:00 Uhr (Benachrichtigungen deaktiviert) ein. Zusätzlich

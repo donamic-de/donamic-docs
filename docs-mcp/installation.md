@@ -7,12 +7,21 @@ sidebar_position: 2
 
 ## Add-on installieren
 
-1. Melden Sie sich in i-doit als Administrator an.
-2. Öffnen Sie **Verwaltung → Add-ons** und laden Sie die ausgelieferte ZIP-Datei
-   des MCP-Servers hoch.
-3. Aktivieren Sie das Add-on für den gewünschten Mandanten.
+Die Installation erfolgt im **Admin-Center** von i-doit — innerhalb der
+i-doit-Oberfläche (Verwaltung) lassen sich Add-ons weder hochladen noch
+installieren.
 
-Nach der Aktivierung stehen die Konfigurationsseite und der MCP-Endpunkt zur
+1. Rufen Sie das Admin-Center auf: `https://<ihre-i-doit-URL>/admin/`.
+2. Melden Sie sich mit Ihren Admin-Center-Zugangsdaten an (eigenes Konto aus
+   der `config.inc.php`, unabhängig vom i-doit-Login).
+3. Öffnen Sie den Bereich **Add-ons** und klicken Sie auf
+   **Install/update Add-on**.
+4. Wählen Sie die ausgelieferte ZIP-Datei des MCP-Servers aus, legen Sie unter
+   **Activate for tenant** fest, ob das Add-on für einen einzelnen Mandanten
+   oder für **All tenants** installiert wird, und klicken Sie auf
+   **Upload and install**.
+
+Nach der Installation stehen die Konfigurationsseite und der MCP-Endpunkt zur
 Verfügung. Fahren Sie mit der [Konfiguration](./konfiguration.md) fort.
 
 ## Lizenz

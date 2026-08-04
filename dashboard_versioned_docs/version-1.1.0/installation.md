@@ -20,21 +20,26 @@ Dieses Kapitel richtet sich an **Administratoren**.
 Das Add-on ist vollständig in i-doit integriert und benötigt keine zusätzliche
 Software. Alle Oberflächen werden mit dem Paket ausgeliefert.
 
-## ZIP-Paket hochladen
+## Add-on installieren
 
-1. Melden Sie sich in i-doit als Administrator an.
-2. Öffnen Sie **Verwaltung → Module → Add-on Uploader**.
-3. Laden Sie das ausgelieferte ZIP-Paket `donamic_dashboard-<version>.zip` hoch.
-4. i-doit entpackt und installiert das Add-on automatisch.
+Die Installation erfolgt im **Admin-Center** von i-doit. Innerhalb der
+i-doit-Oberfläche (Verwaltung) lassen sich Add-ons weder hochladen noch
+installieren.
 
-## Modul aktivieren
+1. Rufen Sie das Admin-Center auf: `https://<ihre-i-doit-URL>/admin/`.
+2. Melden Sie sich mit Ihren Admin-Center-Zugangsdaten an (eigenes Konto aus
+   der `config.inc.php`, unabhängig vom i-doit-Login).
+3. Öffnen Sie den Bereich **Add-ons** und klicken Sie auf
+   **Install/update Add-on**.
+4. Wählen Sie das ausgelieferte ZIP-Paket `donamic_dashboard-<version>.zip`
+   aus, legen Sie unter **Activate for tenant** fest, ob das Add-on für einen
+   einzelnen Mandanten oder für **All tenants** installiert wird, und klicken
+   Sie auf **Upload and install**.
 
-1. Öffnen Sie **Verwaltung → Module-Verwaltung**.
-2. Suchen Sie den Eintrag **Dashboards Pro** und klicken Sie auf **Installieren**.
-3. Nach erfolgreicher Installation wird das Modul automatisch aktiviert.
-
-Während der Installation richtet das Add-on selbstständig alles Nötige ein und
-stellt die dreizehn mitgelieferten Widget-Typen bereit.
+Das Admin-Center entpackt das Paket und installiert das Add-on für die
+gewählten Mandanten; danach ist es automatisch aktiviert. Während der
+Installation richtet das Add-on selbstständig alles Nötige ein und stellt die
+dreizehn mitgelieferten Widget-Typen bereit.
 
 ## Smoke-Test
 

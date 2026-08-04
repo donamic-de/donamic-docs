@@ -7,7 +7,7 @@ sidebar_position: 7
 
 | Symptom | Ursache | Abhilfe |
 |---|---|---|
-| Menüpunkt **Meine Dashboards** fehlt | Modul ist nicht aktiviert oder Nutzer hat keine Rechte (`dashboard_own`). | Modul-Verwaltung prüfen; Berechtigungen in der Rolle nachtragen. |
+| Menüpunkt **Meine Dashboards** fehlt | Modul ist nicht aktiviert oder Nutzer hat keine Rechte (`dashboard_own`). | Im Admin-Center unter **Add-ons** prüfen, ob das Add-on für den Mandanten installiert und aktiviert ist; Berechtigungen in der Rolle nachtragen. |
 | Lizenz-Fehlermeldung beim Öffnen | Kein gültiger Lizenzschlüssel hinterlegt oder Schlüssel abgelaufen. | Über **donamic Lizenzen** aktualisieren. |
 | Widget zeigt keine Daten | Falsche Objekttyp-Auswahl oder Nutzer hat keine Leserechte auf den Objekttyp. | Widget-Konfiguration und CMDB-Rechte prüfen. |
 | Drag-and-Drop funktioniert nicht | JavaScript-Fehler (Browser-Konsole prüfen); ggf. Browser-Cache leeren. | Cache leeren, Konsolen-Log an Support senden. |

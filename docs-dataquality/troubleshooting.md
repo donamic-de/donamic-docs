@@ -7,7 +7,7 @@ sidebar_position: 7
 
 | Symptom | Ursache | Abhilfe |
 |---|---|---|
-| Menüpunkt **Data Quality** fehlt | Modul ist nicht aktiviert oder Nutzer hat kein `Anzeigen`-Recht. | Modul-Verwaltung prüfen; Berechtigungen in der Rolle nachtragen. |
+| Menüpunkt **Data Quality** fehlt | Modul ist nicht aktiviert oder Nutzer hat kein `Anzeigen`-Recht. | Im Admin-Center unter **Add-ons** prüfen, ob das Add-on für den Mandanten installiert und aktiviert ist; Berechtigungen in der Rolle nachtragen. |
 | Lizenz-Fehlermeldung beim Öffnen | Kein gültiger Lizenzschlüssel hinterlegt oder Schlüssel abgelaufen. | Über **donamic Lizenzen** aktualisieren. |
 | Compliance-Score bleibt bei 0 | Es wurde noch keine Auswertung durchgeführt oder es gibt keine Regeln. | **Auswertung starten** klicken; Regelwerk prüfen. |
 | Score in einer Objekt-Kategorie ist veraltet | Letzte Massen-Auswertung liegt zurück. | Button **Jetzt auswerten** am Objekt oder Cron-Job neu anstoßen. |
