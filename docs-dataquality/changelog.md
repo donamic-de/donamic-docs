@@ -7,6 +7,17 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.5.0] — 05.08.2026
+
+Wartungs- und Performance-Release. Bedienung und Auswertungsergebnisse bleiben unverändert.
+
+### Schneller
+- Die Kategorie-Nutzungsanalyse und das Analyse-Dashboard laden in großen Umgebungen deutlich schneller, da im Hintergrund erheblich weniger Datenbankabfragen nötig sind.
+- Sammelaktionen (z. B. Ausnahmen für viele Objekte gleichzeitig setzen oder aufheben) werden spürbar schneller verarbeitet.
+
+### Intern
+- Umfangreiche interne Modernisierung des Add-ons für bessere Wartbarkeit und als Vorbereitung für die Auslieferung als i-doit-Standardpaket. Dies hat keine Auswirkungen auf Bedienung oder Ergebnisse.
+
 ## [1.4.1] — 21.07.2026
 
 Sicherheitsaktualisierung vor der Auslieferung als Standardpaket. Die Auswertungen selbst bleiben unverändert.
