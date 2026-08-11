@@ -7,6 +7,25 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.7.0] — 11.08.2026
+
+### Neu: Benachrichtigungen einrichten — und ein eigener Cron-Job
+
+Der E-Mail-Bericht war zwar im Add-on vorhanden, ließ sich bisher aber **nicht über die
+Oberfläche einstellen**. Das ist jetzt behoben:
+
+- Im **Regelwerk** gibt es den neuen Abschnitt **Benachrichtigungen**: aktivieren,
+  Zeitplan (täglich, wöchentlich mit Wochentag, monatlich), Uhrzeit und Empfänger
+  (Personen oder Gruppen aus der CMDB, mit Suchfeld).
+- Gespeichert wird zusammen mit dem Regelwerk.
+
+**Auswertung und Versand laufen jetzt über einen eigenen Cron-Job.** Ein einziger Eintrag
+erledigt beides; die bisherige Behelfslösung über einen angemeldeten Aufruf entfällt. Der
+Eintrag darf ruhig stündlich laufen — das Add-on entscheidet selbst, wann eine
+Benachrichtigung fällig ist, holt verpasste Läufe nach und verschickt nie doppelt.
+
+Die Einrichtung ist im Kapitel [Konfiguration](konfiguration) beschrieben.
+
 ## [1.6.0] — 11.08.2026
 
 ### Neu: Regelwerk aus einem Objekt lernen
