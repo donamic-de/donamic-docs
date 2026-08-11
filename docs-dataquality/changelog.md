@@ -7,6 +7,33 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.0] — 11.08.2026
+
+### Neu: Regelwerk aus einem Objekt lernen
+
+Data Quality wird meist dort eingeführt, wo schon gepflegte Daten liegen. Statt das
+Regelwerk Feld für Feld aufzubauen, wählen Sie im Regelwerk jetzt einfach ein
+**exemplarisch gut gepflegtes Objekt** aus. Data Quality schaut nach, welche Felder
+dort gefüllt sind, und schlägt daraus Regeln vor — für Objekttypen ohne Regelwerk wird
+eines angelegt, bei vorhandenem Regelwerk werden nur die fehlenden Felder ergänzt.
+
+- Objektsuche über den Namen oder direkt über die Objekt-ID (z. B. `#1373`).
+- Die Vorschläge sind übersichtlich getrennt in „noch nicht im Regelwerk", „bereits im
+  Regelwerk" und „im Regelwerk, aber von diesem Objekt nicht erfüllt".
+- Jeder Eintrag ist einzeln an- und abwählbar. Bestehende Regeln lassen sich damit auch
+  **gezielt entfernen** — praktisch für Felder, die nur per Import befüllt wurden und
+  künftig nicht gepflegt werden sollen.
+- Bei Auswahlfeldern können Sie entscheiden, ob das Feld nur gefüllt sein muss oder ob
+  genau der Wert des Referenzobjekts gefordert wird.
+- Übernommene Vorschläge landen zunächst nur im Editor — gespeichert wird erst mit
+  „Speichern", sodass Sie alles vorher prüfen können.
+
+Felder, die auf „Keine Angabe" stehen, gelten dabei bewusst als nicht gepflegt.
+
+### Behoben
+- Die Auswertung „Doppelte Bezeichner" brach ab, wenn ein doppelter Wert rein aus
+  Ziffern bestand.
+
 ## [1.5.0] — 05.08.2026
 
 Wartungs- und Performance-Release. Bedienung und Auswertungsergebnisse bleiben unverändert.

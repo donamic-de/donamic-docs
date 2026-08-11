@@ -26,6 +26,53 @@ besteht aus:
 Über das Speichern-Symbol werden alle Regeln des Objekttyps gemeinsam gespeichert.
 Danach kann direkt eine erneute Auswertung angestoßen werden.
 
+## Regelwerk aus einem Objekt lernen
+
+Wer Data Quality in einer bereits gepflegten Umgebung einführt, muss das Regelwerk
+nicht Feld für Feld von Hand aufbauen. Über **„Aus Objekt lernen"** wählen Sie ein
+Objekt aus, das exemplarisch gut gepflegt ist — etwa einen Server, bei dem alles
+hinterlegt ist, was Sie sich für alle Server wünschen. Data Quality prüft, welche
+Felder dort gefüllt sind, und schlägt daraus passende Regeln vor.
+
+**So gehen Sie vor:**
+
+1. Im Regelwerk auf **„Aus Objekt lernen"** klicken.
+2. Objekt suchen — über den Namen oder direkt über die Objekt-ID mit vorangestellter
+   Raute, z. B. `#1373`. (Beziehungsobjekte werden ausgeblendet, da sie sich nicht als
+   Vorlage eignen.)
+3. Vorschläge prüfen. Sie sind in drei Abschnitte gegliedert:
+
+| Abschnitt | Bedeutung |
+|---|---|
+| **Noch nicht im Regelwerk** | Am Objekt gepflegte Felder, für die noch keine Regel existiert. Vorausgewählt. |
+| **Bereits im Regelwerk** | Regeln, die es schon gibt und die das Objekt erfüllt. Bleiben erhalten. |
+| **Im Regelwerk, aber von diesem Objekt nicht erfüllt** | Bestehende Regeln, die selbst dieses gut gepflegte Objekt nicht erfüllt — ein guter Anlass zu prüfen, ob die Regel wirklich gewollt ist. |
+
+4. Auswahl anpassen. Das Häkchen bedeutet durchgängig: **„soll am Ende im Regelwerk
+   stehen"**. Felder, die etwa nur einmalig per Import befüllt wurden und künftig nicht
+   gepflegt werden sollen, haken Sie einfach ab. Bei einer **bestehenden** Regel
+   bedeutet das Abhaken, dass sie **entfernt** wird — die Zeile wird dann rot und
+   durchgestrichen dargestellt.
+5. **Übernehmen** klicken. Die Änderungen landen zunächst nur im Editor.
+6. Erst **Speichern** schreibt das Regelwerk fest. So können Sie alles vorher in Ruhe
+   prüfen und korrigieren.
+
+**Gut zu wissen:**
+
+- Existiert für den Objekttyp noch kein Regelwerk, wird es angelegt. Gibt es bereits
+  eines, werden nur die fehlenden Felder ergänzt — es entstehen keine Dubletten.
+- Bei **mehrwertigen Kategorien** (z. B. Kontaktzuweisung) wird „mindestens ein
+  Eintrag" vorgeschlagen. Regeln für einzelne Felder innerhalb solcher Kategorien
+  werden zusätzlich angeboten, sind aber nicht vorausgewählt, da die Kategorie-Regel
+  den Normalfall bereits abdeckt.
+- Bei **Auswahlfeldern** können Sie wählen, ob das Feld nur gefüllt sein muss oder ob
+  genau der Wert des Referenzobjekts gefordert wird (z. B. eine bestimmte Rolle).
+- Felder, die auf **„Keine Angabe"** stehen, gelten bewusst als *nicht* gepflegt und
+  werden nicht vorgeschlagen.
+- Ist eine Kategorie dem Objekttyp gar nicht zugewiesen, wird eine darauf bestehende
+  Regel entsprechend markiert. Solche Regeln können nie erfüllt werden und lassen sich
+  hier direkt entfernen.
+
 ## Analyse (Drill-Down)
 
 Aus jeder Liste lässt sich per Klick auf einen Objekttyp die **Detail-Analyse** öffnen.
