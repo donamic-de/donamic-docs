@@ -7,7 +7,7 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
-## [1.7.0] — 11.08.2026
+## [1.6.1] — 12.08.2026
 
 ### Neu: Benachrichtigungen einrichten — und ein eigener Cron-Job
 
