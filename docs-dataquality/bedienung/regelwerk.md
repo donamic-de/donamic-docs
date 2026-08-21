@@ -26,6 +26,46 @@ besteht aus:
 Über das Speichern-Symbol werden alle Regeln des Objekttyps gemeinsam gespeichert.
 Danach kann direkt eine erneute Auswertung angestoßen werden.
 
+## Mehrere Regeln für dasselbe Attribut
+
+Bei **mehrwertigen** Kategorien — der Kontaktzuweisung etwa — dürfen mehrere Regeln
+auf demselben Attribut liegen. Typischer Fall: Ein Server soll sowohl einen Kontakt
+mit der Rolle **Benutzer** als auch einen mit der Rolle **Administrator** haben. Legen
+Sie dafür einfach zwei Regeln vom Typ *Mindestens ein Eintrag mit Wert* an. Beide
+zählen als eigene Prüfung, und beide sind erfüllbar, weil zwei verschiedene Einträge
+sie abdecken.
+
+Bei **einwertigen** Attributen bleibt es bei einer Regel: Dort gibt es nur einen Wert,
+eine zweite Regel wäre entweder überflüssig oder nie erfüllbar. Der Editor bietet ein
+bereits belegtes Attribut deshalb nur bei mehrwertigen Kategorien erneut an.
+
+## Widersprüche
+
+Beim Speichern prüft Data Quality, ob sich Regeln widersprechen.
+
+**Abgelehnt** werden Kombinationen, die kein Objekt je erfüllen kann — etwa „muss
+gepflegt sein" zusammen mit „darf nicht gepflegt sein" auf demselben Feld. Solche
+Paare sind nicht bloß unschön: Das Objekt bliebe dauerhaft unter 100 % und würde nie
+als konform gelten. Das Regelwerk wird in diesem Fall **nicht gespeichert**; die
+betroffenen Regeln werden einzeln benannt.
+
+**Als Hinweis gemeldet** werden überflüssige Kombinationen, bei denen eine Regel die
+andere bereits einschließt — etwa ein geforderter Wert neben „muss gepflegt sein".
+Gespeichert wird trotzdem.
+
+## Eigene Sprachkonstanten
+
+Benennen Sie Kategorien oder Felder über eigene Sprachkonstanten, zeigt Data Quality
+den übersetzten Text — unabhängig davon, wie die Konstante heißt.
+
+:::note Beide Sprachdateien anlegen
+Die Konstanten müssen in `src/lang/de_custom.inc.php` **und**
+`src/lang/en_custom.inc.php` stehen. Gibt es nur die deutsche Datei, zeigt die
+englische Oberfläche die rohe Konstante. Das ist Verhalten von i-doit selbst und gilt
+für die gesamte Oberfläche, nicht nur für Data Quality.
+:::
+
+
 ## Regelwerk aus einem Objekt lernen
 
 Wer Data Quality in einer bereits gepflegten Umgebung einführt, muss das Regelwerk

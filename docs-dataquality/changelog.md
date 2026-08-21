@@ -7,6 +7,71 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.2] — 21.08.2026
+
+Fünf Punkte aus einem Kundensystem, gebündelt.
+
+### Behoben: Felder eigener Kategorien wurden falsch gespeichert
+
+Wenn Sie ein Feld einer **selbstdefinierten Kategorie** direkt aus der Kategorie
+„Datenqualität" heraus geändert haben, konnte die Änderung ein **anderes Feld
+desselben Objekts** überschreiben — die Oberfläche meldete trotzdem
+„Gespeichert". Das ist behoben; es wird jetzt genau das gemeinte Feld
+geschrieben. Damit lassen sich auch **Dialog-Plus-Felder** eigener Kategorien
+von hier aus setzen.
+
+Mehrwertige Felder werden dabei bewusst abgelehnt, mit Hinweis — sie gehören in
+die Kategorie selbst.
+
+Ebenfalls behoben: Bei eigenen Kategorien fehlte in der Objektansicht der Link
+„↗ Kategorie", und in der Spalte stand statt des Namens die interne Kennung.
+
+### Neu: Mehrere Regeln für dasselbe Attribut
+
+Bei **mehrwertigen** Kategorien — etwa der Kontaktzuweisung — können Sie jetzt
+mehrere Regeln auf dasselbe Attribut legen: „ein Eintrag mit Rolle Benutzer"
+**und** „ein Eintrag mit Rolle Administrator". Beide Regeln zählen einzeln, und
+100 % bleiben erreichbar, weil zwei verschiedene Einträge sie erfüllen können.
+
+Bei **einwertigen** Attributen bleibt es bei einer Regel pro Attribut: Dort gibt
+es nur einen Wert, eine zweite Regel wäre entweder überflüssig oder nie
+erfüllbar.
+
+### Neu: Widersprüche werden beim Speichern erkannt
+
+Fordern zwei Regeln Unvereinbares — „muss gepflegt sein" und zugleich „darf
+nicht gepflegt sein" —, wird das Regelwerk **nicht gespeichert**; die
+betroffenen Regeln werden einzeln benannt. Ein solches Paar wäre nicht bloß
+unschön: Das Objekt bliebe dauerhaft unter 100 % und würde nie als konform
+gelten.
+
+Überflüssige Kombinationen — etwa ein geforderter Wert neben „muss gepflegt
+sein" — werden nur als Hinweis gemeldet; gespeichert wird trotzdem.
+
+### Behoben: Eigene Sprachkonstanten werden übersetzt
+
+Wenn Sie Kategorien oder Felder über eigene Sprachkonstanten benennen, zeigte
+Data Quality bisher die rohe Konstante statt des Textes, sofern die Konstante
+nicht mit `LC__` begann. Jetzt wird immer übersetzt.
+
+:::note Beide Sprachdateien anlegen
+Die Konstanten müssen in `src/lang/de_custom.inc.php` **und**
+`src/lang/en_custom.inc.php` stehen. Gibt es nur die deutsche Datei, zeigt die
+englische Oberfläche weiterhin die rohe Konstante — das ist Verhalten von
+i-doit selbst.
+:::
+
+### Behoben: „Als Startseite" jetzt auch auf Englisch
+
+Der Stern-Knopf, die Zurück-Schaltfläche und einige Hinweistexte waren fest
+deutsch und folgen nun der eingestellten Sprache.
+
+### Behoben: Regelwerk konnte beim Speichern teilweise verloren gehen
+
+Speichern ersetzt das gesamte Regelwerk. Brach das dabei ab, konnten Regeln
+verloren gehen. Jetzt gilt: entweder alles oder nichts — im Fehlerfall bleibt
+das bisherige Regelwerk vollständig erhalten.
+
 ## [1.6.1] — 12.08.2026
 
 ### Neu: Benachrichtigungen einrichten — und ein eigener Cron-Job
