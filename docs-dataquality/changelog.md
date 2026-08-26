@@ -7,6 +7,19 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.3] — 26.08.2026
+
+### Behoben: Fehlermeldung statt Auswertung
+
+In 1.6.2 konnte die Oberfläche mit **„Ein Fehler ist aufgetreten — Die Komponente
+konnte nicht geladen werden"** abbrechen, sobald die Ansicht mit dem
+Verlaufsdiagramm geladen wurde. Betroffen war außerdem die Meldung „Keine
+Treffer" im Regelwerk, wenn man nach einem Attribut suchte, das es nicht gibt.
+
+Ursache war ein Namenskonflikt im Programmcode, der mit der neuen
+Sprachumschaltung in 1.6.2 hineingeraten war. Behoben; Auswertungen und Daten
+waren davon nicht betroffen.
+
 ## [1.6.2] — 21.08.2026
 
 Fünf Punkte aus einem Kundensystem, gebündelt.
