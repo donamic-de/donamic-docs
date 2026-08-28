@@ -30,11 +30,6 @@ sidebar_position: 8
 | **Data Quality** | Datenqualitäts-Übersicht (benötigt das Add-on Data Quality). |
 | **IP Utilization** | Auslastung von Netzwerken inklusive freier IP-Adressen. |
 | **Rack View** | Visualisierung eines Racks in Front- oder Rückansicht. |
-| **Standort-Auswertung** | Zählt oder listet Objekte unterhalb eines Standorts über alle Ebenen. |
-| **Lizenz-Übersicht** | Lizenzauslastung, Add-on-Lizenzen und Wachstumsprognose. |
-| **Angemeldete Benutzer** | Aktive Sitzungen und letzte Anmeldungen, optional anonym. |
-| **CSV-Datei** | CSV-Datei als Tabelle oder Diagramm. |
-| **Externe Datenbank** | SELECT-Abfrage auf eine externe Datenbank als Tabelle, Diagramm oder KPI. |
 | **Legacy Wrapper** | Bindet klassische i-doit-Dashboard-Widgets ein. |
 
 Eine ausführliche Beschreibung der Widgets finden Sie im Kapitel

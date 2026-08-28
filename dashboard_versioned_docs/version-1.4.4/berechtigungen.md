@@ -60,18 +60,6 @@ zugänglich; wer
 keinen Link erzeugen darf, kann also auch keine Daten ungewollt öffentlich machen.
 Links lassen sich jederzeit deaktivieren oder mit Ablaufdatum versehen.
 
-## Datenquellen und Attribut-Filter
-
-**Datenquellen** (CSV-Dateien, externe Datenbanken) legt an, ändert und löscht nur, wer das
-Admin-Recht besitzt. Dashboard-Editoren wählen freigegebene Quellen in Widgets aus und
-formulieren beim Widget „Externe Datenbank" die SELECT-Abfrage selbst — schreibende
-Anweisungen werden serverseitig abgelehnt (siehe [Datenquellen](./bedienung/datenquellen.md)).
-
-Der **Attribut-Filter** zeigt beim Konfigurieren nur Kategorien, die die konfigurierende
-Person in i-doit sehen darf; Geheimnisfelder sind grundsätzlich ausgeschlossen. Der
-Attributkatalog, Dialogwerte und der Standortbaum sind nur für Personen abrufbar, die
-Dashboards bearbeiten dürfen.
-
 ## Sichtbarkeit von Objekten in Widgets
 
 Die Rechte oben regeln den Zugriff auf das **Dashboard**. Davon zu unterscheiden ist,

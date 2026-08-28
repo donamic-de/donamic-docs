@@ -7,40 +7,6 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Dashboards Pro in verständlicher Form zusammen.
 
-## [1.5.0] — 28.08.2026
-
-### Neu
-
-- **Widget „Standort-Auswertung".** Standort im aufklappbaren Standortbaum oder per Suche wählen, Objekttypen angeben — das Widget zählt oder listet alle Objekte unterhalb dieses Standorts über alle Ebenen (optional bis zu einer maximalen Tiefe). Sechs Darstellungen von der Kachel bis zur Objektliste mit Diagramm; der Standort jedes Objekts erscheint als direkter Standort oder vollständiger Pfad. Näheres unter [Widgets](bedienung/widgets.md#standort-auswertung).
-- **Attribut-Filter.** Objekt-Zähler, Quick Stats (je Karte), CMDB-Status Diagramm, Vertrags-/Garantie-Ablauf und Standort-Auswertung lassen sich um bis zu zehn Bedingungen auf beliebige Kategorie-Attribute einschränken — Objekttitel, zugewiesene Person, installierte Software, Dialogwerte, Datums- und Zahlenfelder, auch aus benutzerdefinierten Kategorien. Die gefilterten Werte erscheinen im Objektlisten-Modal als Spalten. Näheres unter [Attribut-Filter](bedienung/widgets.md#attribut-filter).
-- **Externe Datenquellen.** Administratoren legen CSV-Dateien (Upload oder automatisierter Austausch im Mandanten-Verzeichnis) und Verbindungen zu externen MySQL/MariaDB- oder PostgreSQL-Datenbanken an. Die Widgets **„CSV-Datei"** und **„Externe Datenbank"** zeigen sie als Tabelle, Diagramm oder KPI-Karte — mit Berechnung (Anzahl, Summe, Durchschnitt, Minimum, Maximum) und Zwischenspeicher. Näheres unter [Datenquellen](bedienung/datenquellen.md).
-- **Widget „Lizenz-Übersicht".** Auslastung der i-doit-Lizenz mit Warnschwelle, Add-on-Lizenzen mit Ablaufdatum, Objektverteilung über Mandanten und eine Wachstumsprognose („Lizenz reicht noch ca. X Monate") aus dem tatsächlichen Wachstum der CMDB.
-- **Widget „Angemeldete Benutzer".** Aktive Sitzungen mit Anmeldezeit und letzter Aktivität, getrennt gezählte API-Sitzungen, letzte Anmeldungen — auf Wunsch anonymisiert (dann verlassen keine Namen und IP-Adressen den Server).
-- Das Objektlisten-Modal zeigt widget-spezifische Zusatzspalten; in der öffentlichen Ansicht öffnet auch ein Klick auf eine Zeile der Aufschlüsselungs-Liste das Modal.
-- Die CMDB-Status-Auswahl blendet die internen Pseudo-Status „i-doit Status" und „Template" aus.
-
-### Sicherheit
-
-- Abfragen an externe Datenbanken werden strenger geprüft: Neben schreibenden Anweisungen sind jetzt auch blockierende und dateilesende Funktionen gesperrt; jede Abfrage hat ein Laufzeitlimit von 10 Sekunden. Zwischengespeicherte Ergebnisse sind je Mandant und Verbindungsziel getrennt.
-- Daten aus CSV-Dateien und externen Datenbanken werden als reiner Text dargestellt — HTML aus fremden Systemen wird nicht interpretiert.
-- Attribut-Filter: erweiterte Sperrliste für Geheimnisfelder (PIN/PUK, Passphrasen, OTP/2FA, Zugangsdaten); öffentliche Links geben keine gefilterten Attributwerte aus. Attributkatalog, Dialogwerte und Standortbaum sind nur für Dashboard-Editoren und Administratoren abrufbar.
-
-### Verbessert
-
-- **Dashboards laden schneller.** Die Widgets eines Dashboards werden jetzt parallel geladen; bisher wartete jedes Widget auf das vorherige.
-- Objekt-Zähler: Die Kachelfarbe bietet dieselben Farbfelder und die freie Farbwahl wie Quick Stats; gespeicherte Farben bleiben gültig.
-- Zahlreiche Oberflächentexte (Vollbild, Vorschau, Statusnamen, Notiz-Editor, Hinweis der öffentlichen Ansicht …) sind jetzt in Deutsch und Englisch übersetzt.
-
-### Behoben
-
-- **Ein Add-on-Update entfernte die Lizenz** — sie musste danach neu eingespielt werden. Die Lizenz bleibt jetzt bei Updates erhalten.
-- Der Teilen-Dialog zeigte in der Personensuche den Platzhalter der Command Palette.
-- Die Deinstallation entfernt jetzt auch die Tabelle der externen Datenquellen.
-
-:::tip Empfehlung
-Dieses Update enthält Sicherheitsverbesserungen für externe Datenquellen. Wir empfehlen die zeitnahe Installation, wenn Sie das Widget „Externe Datenbank" einsetzen oder Dashboards über öffentliche Links teilen.
-:::
-
 ## [1.4.4] — 03.08.2026
 
 ### Sicherheit

@@ -22,11 +22,6 @@ sidebar_position: 2
 | **Datenqualität** | 2×1 | Datenqualitäts-Scorecard (benötigt das Add-on donamic Data Quality). |
 | **IP-Auslastung** | 2×2 | Auslastungsanalyse von Netzwerken inklusive freier IP-Adressen. |
 | **Rackansicht** | 2×4 | Rack-Visualisierung mit eingebauten Geräten (Front-/Rückansicht). |
-| **Standort-Auswertung** | 2×3 | Zählt oder listet Objekte unterhalb eines Standorts (Gebäude, Raum, Rack …) über alle Ebenen. |
-| **Lizenz-Übersicht** | 2×2 | Auslastung der i-doit-Lizenz, Add-on-Lizenzen und Wachstumsprognose. |
-| **Angemeldete Benutzer** | 2×2 | Aktive Sitzungen und letzte Anmeldungen — optional anonymisiert. |
-| **CSV-Datei** | 2×2 | Zeigt eine CSV-Datei als Tabelle oder Diagramm (Datenquelle „CSV"). |
-| **Externe Datenbank** | 2×2 | SELECT-Abfrage auf eine externe MySQL/MariaDB- oder PostgreSQL-Datenbank als Tabelle, Diagramm oder KPI. |
 | **Legacy Widget** | 2×1 | Adapter für klassische i-doit-Dashboard-Widgets. |
 
 Jedes Widget bringt eine eigene Konfigurations-Maske mit (Optionsmenü → **Konfigurieren**).
@@ -39,9 +34,6 @@ Hinweis *„nur bei …"* erscheinen erst, wenn die genannte Einstellung gewähl
   Standard: nur „Normal".
 - **Objekttyp**: Mehrfachauswahl von Objekttypen; keine Auswahl = alle Typen
   (Beziehungsobjekte werden automatisch ausgeschlossen).
-- **Attribut-Filter**: Bis zu zehn zusätzliche Bedingungen auf beliebige Kategorie-Attribute
-  (Objekt-Zähler, Quick Stats, CMDB-Status Diagramm, Vertrags-/Garantie-Ablauf,
-  Standort-Auswertung) — siehe [Attribut-Filter](#attribut-filter).
 
 ---
 
@@ -59,7 +51,7 @@ Zeigt die Anzahl von Objekten nach Typ oder Status.
 | Balkenstil | Einfarbig oder Gestreift — *nur bei Balken/Säule* | Einfarbig |
 | Limit | Maximale Einträge der Aufschlüsselung (0–200) | 10 |
 | Leere Status anzeigen | Auch Status ohne Objekte auflisten — *nur bei Nach CMDB-Status* | aus |
-| Kartenfarbe | 12 Vorgabefarben oder eigener Hex-Wert — *nur bei Gesamtzahl* | keine |
+| Kartenfarbe | Hintergrundfarbe der KPI-Kachel (Grün, Blau, Amber, Rot, Lila, Petrol) — *nur bei Gesamtanzahl* | keine |
 | Trend anzeigen | Vergleichszeitraum auf der Kachel (7/14/21/28 Tage, Dieser Monat) — *nur bei Gesamtanzahl* | aus |
 | Objekt-Status | Siehe oben | Normal |
 
@@ -233,107 +225,6 @@ Benötigt das Add-on **donamic Data Quality** — andernfalls zeigt das Widget e
 | Rack | Das darzustellende Rack (mit Suchfeld) | — |
 | Ansicht | Vorderseite, Rückseite oder Beide Seiten | Vorderseite |
 
-## Standort-Auswertung
-
-Zählt oder listet Objekte unterhalb eines Standorts — über alle Unterebenen (ein Gebäude
-zählt auch die Geräte in seinen Räumen und Racks).
-
-| Feld | Beschreibung | Standard |
-|---|---|---|
-| Standort | Auswahl im aufklappbaren **Standortbaum** (wie im Standort-Browser von i-doit) oder per Suche; der gewählte Standort erscheint als Chip | — |
-| Objekttyp | Ein oder mehrere Objekttypen (Pflichtfeld — ohne Auswahl zeigt das Widget einen Hinweis) | — |
-| CMDB-Status | Mehrfachauswahl; keine Auswahl = alle | alle |
-| Objekt-Status | Siehe oben | Normal |
-| Maximale Tiefe | Wie viele Ebenen unterhalb des Standorts berücksichtigt werden; 0 = unbegrenzt | 0 |
-| Anzeigemodus | **Gesamtanzahl** (Kachel), **Zählerliste je Objekttyp**, **Nur Diagramm**, **Objektliste**, **Diagramm und Objektliste** (nebeneinander), **Diagramm über Objektliste** | Zählerliste |
-| Kartenfarbe | 12 Vorgabefarben oder eigener Hex-Wert — *nur bei Gesamtanzahl* | keine |
-| Diagrammtyp / Balkenstil | Balken, Säulen, Donut; Einfarbig/Gestreift — *nur bei Diagramm-Darstellungen* | Balken |
-| Objekttypen ohne Treffer anzeigen | Zeigt gewählte Typen auch mit 0 | aus |
-| Maximale Zeilen | Obergrenze der Objektliste (bis 5000) — *nur bei Listen-Darstellungen* | 1000 |
-| Spalte Objekttyp / CMDB-Status | Spalten der Objektliste ein-/ausblenden | ein |
-| Standortanzeige | **Direkter Standort** (z. B. „Raum 101") oder **vollständiger Pfad** (`Berlin > Gebäude A > Raum 101`); lange Pfade werden von vorne gekürzt, der volle Pfad erscheint als Tooltip | Direkter Standort |
-
-Ein Klick auf eine Kachel, eine Zeile der Zählerliste oder ein Diagramm-Segment öffnet die
-Objektliste mit der zusätzlichen Spalte **Standort**. In den kombinierten Darstellungen
-verhält sich das Widget wie das Report-Widget: Trennlinie verschiebbar, Segment-Klick
-filtert die Liste, Tabellenfilter aktualisieren das Diagramm.
-
-:::info Standortdaten
-Berücksichtigt werden Objekte mit einem Eintrag in der Kategorie **Standort**. Verwaiste
-oder zyklische Zuordnungen aus Altdaten führen nicht zu falschen Zahlen; der Standortbaum
-wird aus Container-Objekten (Land, Stadt, Gebäude, Raum, Rack …) gebildet.
-:::
-
-## Lizenz-Übersicht
-
-Zeigt die Auslastung der i-doit-Lizenz und rechnet aus dem Wachstum der CMDB hoch, wann das
-Objektlimit erreicht wird.
-
-| Feld | Beschreibung | Standard |
-|---|---|---|
-| Details anzeigen | Lizenzierte Add-ons mit Ablaufdatum, Objektverteilung über Mandanten, letzter Kontakt zum Lizenzserver | ein |
-| Prognose anzeigen | Lineare Hochrechnung „Lizenz reicht noch ca. X Monate" aus den Logbuch-Ereignissen (angelegt, archiviert, gelöscht, wiederhergestellt) | ein |
-| Datenbasis der Prognose | 30, 90, 180 oder 365 Tage | 90 Tage |
-| Trenddiagramm anzeigen | Mini-Verlauf der Objektzahl — *nur bei Prognose* | ein |
-| Warnschwelle | Prozent der Lizenz, ab dem der Balken warnt | 80 % |
-
-In i-doit OPEN oder ohne Objektlimit zeigt das Widget die reine Objektzahl.
-
-## Angemeldete Benutzer
-
-Zeigt die aktuell angemeldeten Benutzer aus den aktiven i-doit-Sitzungen.
-
-| Feld | Beschreibung | Standard |
-|---|---|---|
-| Datenschutz | **Vollständig** (Namen, Zeiten) oder **Anonym** — im anonymen Modus enthält schon die Serverantwort ausschließlich Zählwerte, keine Namen und keine IP-Adressen | Vollständig |
-| IP-Adresse anzeigen | Zeigt die IP-Adresse der Sitzung | aus |
-| API-Sitzungen anzeigen | API-Sitzungen werden getrennt gezählt und optional gelistet | aus |
-| Letzte Anmeldungen anzeigen | Pro Benutzer das letzte Login-Datum (`last_login`); mit Hinweis, falls die Speicherung in den Mandanten-Einstellungen deaktiviert ist | ein |
-| Limit | Maximale Listeneinträge | 25 |
-
-Auf öffentlichen Dashboards werden Personen ohne Verlinkung dargestellt.
-
-## CSV-Datei
-
-Zeigt eine CSV-Datei als Tabelle oder Diagramm. Die Datei wird als **Datenquelle** vom
-Typ CSV bereitgestellt — siehe [Datenquellen](./datenquellen.md).
-
-| Feld | Beschreibung | Standard |
-|---|---|---|
-| Datenquelle | Eine CSV-Datenquelle (Direktlink zur Datenquellen-Verwaltung) | — |
-| Anzeigemodus | Tabelle oder Diagramm | Tabelle |
-| Maximale Zeilen | Obergrenze der geladenen Zeilen | 100 |
-| Diagrammtyp | Balken, Säulen, Donut — *nur bei Diagramm* | Balken |
-| Label-Spalte | Spalte aus der Kopfzeile für die Segment-Beschriftung — *nur bei Diagramm* | — |
-| Berechnung | Anzahl der Zeilen, Summe, Durchschnitt, Minimum oder Maximum einer Wertspalte — *nur bei Diagramm* | Anzahl |
-| Wert-Spalte | Zahlenspalte (gekennzeichnet) — *nur bei Summe/Durchschnitt/Min/Max* | — |
-| Max. Diagramm-Einträge | Überzählige Einträge werden zu „Andere" zusammengefasst | 10 |
-
-Zellen werden als reiner Text dargestellt — HTML aus fremden Systemen wird nicht
-interpretiert.
-
-## Externe Datenbank
-
-Führt eine SELECT-Abfrage auf eine externe MySQL/MariaDB- oder PostgreSQL-Datenbank aus.
-Die Verbindung wird als **Datenquelle** von einem Administrator angelegt — siehe
-[Datenquellen](./datenquellen.md); die Abfrage formuliert der Dashboard-Editor im Widget.
-
-| Feld | Beschreibung | Standard |
-|---|---|---|
-| Datenquelle | Eine Datenbank-Datenquelle | — |
-| SQL-Abfrage (nur SELECT) | Eine einzelne SELECT-Abfrage. Schreibende Anweisungen, mehrere Statements und blockierende oder dateilesende Funktionen werden serverseitig abgelehnt; Zeilenzahl und Laufzeit (10 Sekunden) sind begrenzt | — |
-| Anzeigemodus | Tabelle, Diagramm oder KPI-Karte | Tabelle |
-| Maximale Zeilen | Obergrenze der geladenen Zeilen — *nur bei Tabelle/Diagramm* | 100 |
-| Aktualisierung | Zwischenspeicher: keine, 30 s, 1 min, 5 min, 15 min, 1 h — Dashboards treffen das Fremdsystem nicht bei jedem Reload | 1 min |
-| Diagrammtyp, Label-Spalte, Berechnung, Wert-Spalte, Max. Einträge | Wie beim Widget „CSV-Datei"; die Spalten stammen aus dem Abfrageergebnis — *nur bei Diagramm* | — |
-| KPI-Bezeichnung / Einheit | Beschriftung und Einheit der Kennzahl (erster Wert der ersten Zeile) — *nur bei KPI-Karte* | — |
-
-:::tip Nur-Lese-Benutzer
-Legen Sie für die externe Datenbank einen Benutzer an, der ausschließlich `SELECT` auf
-die benötigten Tabellen darf. Die serverseitige SELECT-Sperre ist eine zweite Schicht,
-kein Ersatz für Datenbankrechte.
-:::
-
 ## Legacy Widget
 
 | Feld | Beschreibung | Standard |
@@ -343,37 +234,3 @@ kein Ersatz für Datenbankrechte.
 Die Einstellungen des eingebetteten Widgets werden über dessen eigene Oberfläche gepflegt.
 Legacy Widgets sind auf öffentlichen Dashboards nicht darstellbar (sie benötigen eine
 aktive i-doit-Sitzung).
-
-## Attribut-Filter
-
-Die Widgets **Objekt-Zähler**, **Quick Stats** (je Karte), **CMDB-Status Diagramm**,
-**Vertrags-/Garantie-Ablauf** und **Standort-Auswertung** lassen sich um bis zu zehn
-zusätzliche Bedingungen auf beliebige Kategorie-Attribute einschränken — etwa Objekttitel,
-Beschreibung, Seriennummer, zugewiesene Person, installierte Software, Dialogwerte wie
-Zweck oder CMDB-Status, Datums- und Zahlenfelder, auch aus benutzerdefinierten Kategorien.
-
-**Bedingung anlegen:** Im Konfigurationsdialog **„+ Bedingung"** wählen, dann entweder
-im Suchfeld tippen (findet Kategorie und Attribut) oder Kategorie → Attribut auswählen,
-anschließend Operator und Wert setzen.
-
-| Feldtyp | Operatoren | Wert |
-|---|---|---|
-| Text | ist gleich, ist nicht gleich, enthält, enthält nicht, beginnt mit, ist leer, ist nicht leer | Freitext (max. 200 Zeichen) |
-| Zahl | ist gleich, ungleich, größer, größer/gleich, kleiner, kleiner/gleich, ist leer, ist nicht leer | Zahl |
-| Datum | am, vor, nach, ist leer, ist nicht leer | Datum |
-| Dialog (z. B. Zweck, CMDB-Status) | ist einer von, ist keiner von, ist leer, ist nicht leer | Mehrfachauswahl aus den Dialogwerten |
-| Objekt (z. B. Kontakt, Software) | ist einer von, ist keiner von, Titel enthält, ist leer, ist nicht leer | Objekt-Auswahl per Suche oder Freitext |
-
-**Regeln:**
-
-- Alle Bedingungen müssen zutreffen (UND-Verknüpfung).
-- Bei mehrwertigen Kategorien (Kontakte, Software, IP-Adressen …) zählt ein Objekt, sobald
-  ein Eintrag passt; „nicht"-Operatoren gelten objektbezogen (kein Eintrag passt).
-- Im Objektlisten-Modal erscheinen die gefilterten Attribute als zusätzliche Spalten und
-  die aktiven Bedingungen als Hinweiszeile. Auf öffentlichen Dashboards werden die
-  Filterkriterien und die Zusatzspalten nicht ausgegeben.
-- Der Feldkatalog zeigt nur Kategorien, die die konfigurierende Person in i-doit sehen
-  darf. Geheimnisfelder (Passwörter, Schlüssel, Tokens, PIN/PUK, Zugangsdaten) sind
-  grundsätzlich ausgeschlossen. Eine ungültig gewordene Bedingung (z. B. gelöschte
-  benutzerdefinierte Kategorie) führt zu einer Fehlermeldung im Widget — nie zu einer
-  stillschweigend erweiterten Treffermenge.

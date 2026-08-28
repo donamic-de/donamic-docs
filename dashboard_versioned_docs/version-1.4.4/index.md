@@ -9,11 +9,9 @@ sidebar_position: 1
 **donamic Dashboards Pro** erweitert i-doit um ein modernes, mandantenfähiges
 Dashboard-System mit Multi-Dashboard-Unterstützung. Anwender können beliebig viele
 eigene Dashboards anlegen, diese mit Widgets bestücken, per Drag-and-Drop anordnen
-und mit anderen Personen oder Gruppen teilen. Achtzehn fertige Widget-Typen decken
+und mit anderen Personen oder Gruppen teilen. Dreizehn fertige Widget-Typen decken
 typische CMDB-Anwendungsfälle ab — von einfachen Objekt-Zählern über
-Report-Einbettungen, Standort-Auswertungen und Lizenz-Übersichten bis hin zu
-Rack-Visualisierungen, IP-Auslastungs-Analysen und Daten aus CSV-Dateien oder
-externen Datenbanken.
+Report-Einbettungen bis hin zu Rack-Visualisierungen und IP-Auslastungs-Analysen.
 
 Das Add-on ersetzt die klassische i-doit-Startseite auf Wunsch komplett und bietet
 eine projektweite **Command Palette** (Strg+K) für schnelle Navigation.
@@ -29,9 +27,7 @@ entsprechend gekennzeichnet.
 ## Auf einen Blick
 
 - Beliebig viele eigene Dashboards pro Nutzer
-- 18 Widget-Typen für typische CMDB-Auswertungen
-- Attribut-Filter: Widgets auf beliebige Kategorie-Attribute einschränken
-- Externe Datenquellen: CSV-Dateien und MySQL/PostgreSQL-Datenbanken im Dashboard
+- 13 Widget-Typen für typische CMDB-Auswertungen
 - Teilen mit Personen und Gruppen, optional öffentliche Links
 - Command Palette (Strg+K) für schnelle Navigation
 - Optional als Ersatz für die klassische i-doit-Startseite
