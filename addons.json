@@ -45,7 +45,7 @@
     "id": "design",
     "addonDir": "donamic_design",
     "label": "Design",
-    "version": "1.0.1",
-    "description": "Zentrales Theming und Design-System für die donamic Add-ons."
+    "version": "1.1.0",
+    "description": "Corporate Design für die gesamte i-doit-Oberfläche: Logo, Farben, Schaltflächen-Stil und Druckansicht."
   }
 ]

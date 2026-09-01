@@ -35,11 +35,11 @@ Nach der Installation finden Sie den Menüpunkt **Design** im Hauptmenü.
 ## Lizenzierung
 
 donamic Design ist lizenzpflichtig. Ohne gültige Lizenz ist nur die
-Lizenzverwaltung erreichbar.
+Lizenzverwaltung erreichbar. Wie Sie Ihren Lizenzschlüssel hinterlegen, beschreibt
+das Kapitel [Lizenzierung](./lizenzierung.md).
 
-- Ist das Add-on über Ihre i-doit-Lizenz abgedeckt, müssen Sie nichts weiter tun.
-- Andernfalls hinterlegen Sie Ihren donamic-Lizenzschlüssel unter
-  **Verwaltung → Add-ons → donamic Lizenzen**.
+## Nach einem Update
 
-Bei Fragen zur Lizenz wenden Sie sich an
-[support@donamic.de](mailto:support@donamic.de).
+Nach einem Update des Add-ons wenden Sie das aktive Design einmal neu an
+(**Design → Konfiguration → Design anwenden**), damit alle Stylesheets mit dem
+neuen Stand erzeugt werden.

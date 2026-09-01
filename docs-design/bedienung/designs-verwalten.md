@@ -1,6 +1,6 @@
 ---
 title: Designs verwalten
-sidebar_position: 3
+sidebar_position: 1
 ---
 
 # Designs verwalten
@@ -18,8 +18,8 @@ Designs mit ihrem Status (aktiv ja/nein). Von hier aus steuern Sie alles Weitere
 | **Löschen** | Entfernt ein Design. Ist das gelöschte Design gerade aktiv, wird automatisch auf das Standarddesign zurückgesetzt. |
 | **Design anwenden** | Aktiviert das gewählte Design für **alle** i-doit-Benutzer. |
 | **Design zurücksetzen** | Stellt das i-doit-Standarddesign wieder her. |
-| **Design exportieren** | Speichert das Design als Datei (zur Sicherung oder Übertragung). |
-| **Design importieren** | Lädt ein zuvor exportiertes Design aus einer Datei. |
+| **Design exportieren** | Speichert das Design als JSON-Datei (zur Sicherung oder Übertragung). |
+| **Design importieren** | Lädt ein zuvor exportiertes Design oder eine [mitgelieferte Vorlage](./vorlagen.md) aus einer JSON-Datei. |
 
 ## Ein Design anlegen und aktivieren
 
@@ -35,10 +35,11 @@ Nur gespeicherte Designs lassen sich aktivieren. Nicht gespeicherte Änderungen 
 Editor werden beim Anwenden nicht übernommen.
 :::
 
-:::tip Nach dem Anwenden: Browser-Cache leeren
-Nach **Anwenden** oder **Zurücksetzen** müssen Sie den Browser-Cache leeren, damit
-das neue Aussehen erscheint — mit **Strg + F5** (Windows) bzw.
-**⌘ + Umschalt + R** (Mac). Dieser Hinweis wird Ihnen auch in i-doit angezeigt.
+:::tip Die Seite lädt automatisch neu
+Nach **Anwenden** oder **Zurücksetzen** lädt i-doit die Seite automatisch neu —
+das neue Aussehen erscheint sofort. Sollte in Ausnahmefällen noch das alte Design
+zu sehen sein, erzwingen Sie ein Neuladen mit **Strg + F5** (Windows) bzw.
+**⌘ + Umschalt + R** (Mac).
 :::
 
 ## Löschen ist endgültig

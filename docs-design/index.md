@@ -24,18 +24,21 @@ wirkt i-doit wie ein Teil Ihrer eigenen Anwendungslandschaft.
 - **Farben** für jeden Oberflächenbereich (Navigation, Überschriften, Schaltflächen,
   Formularfelder, Links, Inhaltsflächen, farbige Infoboxen)
 - **Schaltflächen-Stil** (Form, Rahmen, Schatten)
+- Auch die **Druckansicht der Objektlisten** übernimmt Logo und Designfarben —
+  siehe [Druckansicht](./bedienung/druckansicht.md)
 
-Fertige Vorlagen wie **Nordic**, **Copper**, **Indigo**, **Rose**, **Sage** oder
-**Carbon** dienen als Startpunkt. Eigene Designs lassen sich als Datei exportieren
-und wieder importieren — praktisch, um ein Design zwischen Installationen zu
-übertragen. Die einzelnen Gestaltungsoptionen beschreibt das Kapitel
-[Gestaltungsoptionen](./gestaltung.md).
+Sechs fertige Vorlagen — **donamic Carbon**, **Copper**, **Indigo**, **Nordic**,
+**Rosé** und **Sage** — dienen als Startpunkt (siehe
+[Mitgelieferte Vorlagen](./bedienung/vorlagen.md)). Eigene Designs lassen sich als
+Datei exportieren und wieder importieren — praktisch, um ein Design zwischen
+Installationen zu übertragen. Die einzelnen Gestaltungsoptionen beschreibt das
+Kapitel [Gestaltungsoptionen](./bedienung/gestaltung.md).
 
 ## Wo finde ich das Add-on?
 
 Nach der Installation erscheint im Hauptmenü der Eintrag **Design** mit dem
 Unterpunkt **Konfiguration**. Dort verwalten Sie Ihre Designs und aktivieren das
-gewünschte — siehe [Designs verwalten](./designs-verwalten.md).
+gewünschte — siehe [Designs verwalten](./bedienung/designs-verwalten.md).
 
 :::info Gilt für alle Benutzer
 Ein aktiviertes Design wirkt mandantenweit für **alle** i-doit-Benutzer. Es gibt
