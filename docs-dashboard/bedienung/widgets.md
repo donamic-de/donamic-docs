@@ -20,6 +20,7 @@ sidebar_position: 2
 | **Notizen** | 1×1 | Freitextblock für Hinweise — mit Formatierung und Links. |
 | **Lesezeichen** | 1×1 | Quick-Links zu URLs und i-doit-Objekten, als Liste oder Kacheln. |
 | **Datenqualität** | 2×1 | Datenqualitäts-Scorecard (benötigt das Add-on donamic Data Quality). |
+| **Entsorgung** | 2×1 | Laufende und abgeschlossene Entsorgungsvorgänge (benötigt das Add-on donamic Disposal). |
 | **IP-Auslastung** | 2×2 | Auslastungsanalyse von Netzwerken inklusive freier IP-Adressen. |
 | **Rackansicht** | 2×4 | Rack-Visualisierung mit eingebauten Geräten (Front-/Rückansicht). |
 | **Standort-Auswertung** | 2×3 | Zählt oder listet Objekte unterhalb eines Standorts (Gebäude, Raum, Rack …) über alle Ebenen. |
@@ -41,7 +42,7 @@ Hinweis *„nur bei …"* erscheinen erst, wenn die genannte Einstellung gewähl
   (Beziehungsobjekte werden automatisch ausgeschlossen).
 - **Attribut-Filter**: Bis zu zehn zusätzliche Bedingungen auf beliebige Kategorie-Attribute
   (Objekt-Zähler, Quick Stats, CMDB-Status Diagramm, Vertrags-/Garantie-Ablauf,
-  Standort-Auswertung) — siehe [Attribut-Filter](#attribut-filter).
+  Standort-Auswertung, Entsorgung) — siehe [Attribut-Filter](#attribut-filter).
 
 ---
 
@@ -219,6 +220,38 @@ Benötigt das Add-on **donamic Data Quality** — andernfalls zeigt das Widget e
 | Schwellwert Gut / Warnung (%) | Ab diesem Score gilt „Gut" (grün) bzw. „Warnung" (gelb), darunter „Kritisch" (rot) | 80 / 50 |
 | Limit | Einträge der Worst-Liste (5–100) — *nur bei Worst-Liste* | 20 |
 
+## Entsorgung
+
+Benötigt das Add-on **donamic Disposal** — andernfalls erscheint das Widget nicht in der
+Widget-Auswahl; ein bereits platziertes Widget zeigt einen Hinweis statt eines Fehlers.
+
+| Feld | Beschreibung | Standard |
+|---|---|---|
+| Anzeigemodus | Zusammenfassung, In Entsorgung, Entsorgt oder Schritt-Verteilung | Zusammenfassung |
+| Objekttyp | Einschränkung auf bestimmte Objekttypen | alle |
+| Limit | Einträge der Listen (5–100) — *nur bei den Listen* | 20 |
+| Sortierung | Datum (neueste/älteste zuerst) oder nach Zustand (weitere Verwendung) gruppiert — *nur bei „Entsorgt"* | Datum, neueste zuerst |
+| Attribut-Filter | Bis zu zehn Bedingungen — siehe [Attribut-Filter](#attribut-filter) | leer |
+
+**Die vier Darstellungen:**
+
+- **Zusammenfassung** — zwei Kacheln „In Entsorgung" und „Entsorgt" (Objektzählung) mit
+  der Verteilung der laufenden Vorgänge auf die fünf Prozessschritte. Ein Klick auf eine
+  Kachel oder einen Schritt-Zähler öffnet das Objektlisten-Modal mit den dahinterliegenden
+  Objekten (inklusive Schritt bzw. Entsorgungsdatum als Spalte und Suchfeld).
+- **In Entsorgung** — Objektliste der laufenden Vorgänge mit aktuellem Prozessschritt,
+  Fortschrittsbalken und Startdatum; die am weitesten fortgeschrittenen zuerst.
+- **Entsorgt** — Objektliste der abgeschlossenen Vorgänge mit „Entsorgt am" und
+  „Weitere Verwendung"; „Entsorgt durch" erscheint als Tooltip auf dem Datum.
+- **Schritt-Verteilung** — Säulendiagramm der laufenden Vorgänge je Prozessschritt.
+
+**Klick-Navigation in den Listen:** Ein Klick auf die Zeile öffnet den zugehörigen
+**Entsorgungsvorgang** im Disposal-Add-on; ein Klick auf den Objekttitel öffnet das
+**Objekt** selbst.
+
+Nach Abschluss archivierte Objekte werden mitgezählt und angezeigt. Das Widget steht
+auch auf öffentlichen Dashboards zur Verfügung (dort ohne Verlinkung und ohne Drilldown).
+
 ## IP-Auslastung
 
 | Feld | Beschreibung | Standard |
@@ -347,7 +380,7 @@ aktive i-doit-Sitzung).
 ## Attribut-Filter
 
 Die Widgets **Objekt-Zähler**, **Quick Stats** (je Karte), **CMDB-Status Diagramm**,
-**Vertrags-/Garantie-Ablauf** und **Standort-Auswertung** lassen sich um bis zu zehn
+**Vertrags-/Garantie-Ablauf**, **Standort-Auswertung** und **Entsorgung** lassen sich um bis zu zehn
 zusätzliche Bedingungen auf beliebige Kategorie-Attribute einschränken — etwa Objekttitel,
 Beschreibung, Seriennummer, zugewiesene Person, installierte Software, Dialogwerte wie
 Zweck oder CMDB-Status, Datums- und Zahlenfelder, auch aus benutzerdefinierten Kategorien.

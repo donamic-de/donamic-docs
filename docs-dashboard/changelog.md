@@ -7,6 +7,27 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Dashboards Pro in verständlicher Form zusammen.
 
+## [1.5.2] — 04.09.2026
+
+### Neu
+
+- **Widget „Entsorgung".** Zeigt laufende und abgeschlossene Entsorgungsvorgänge aus dem
+  Add-on donamic Disposal — als Zusammenfassung mit Schritt-Verteilung, als Listen
+  „In Entsorgung" (mit Fortschrittsbalken) und „Entsorgt" (mit Entsorgungsdatum und
+  weiterer Verwendung, sortierbar nach Datum oder Zustand) oder als Säulendiagramm.
+  Ein Klick auf eine Listenzeile öffnet den Entsorgungsvorgang, ein Klick auf den
+  Objekttitel das Objekt; Kacheln und Schritt-Zähler der Zusammenfassung öffnen das
+  Objektlisten-Modal. Attribut-Filter werden unterstützt; nach Abschluss archivierte
+  Objekte werden mitgezählt. Das Widget erscheint nur in der Auswahl, wenn das
+  Disposal-Add-on installiert und aktiv ist, und steht auch auf öffentlichen
+  Dashboards zur Verfügung. Näheres unter [Widgets](bedienung/widgets.md#entsorgung).
+
+### Behoben
+
+- Nach dem Verlassen der Dashboard-Startseite blieb die Breadcrumb-Navigation
+  ausgeblendet und hinterließ einen leeren Balken — sie wird jetzt automatisch
+  wieder eingeblendet.
+
 ## [1.5.0] — 28.08.2026
 
 ### Neu

@@ -28,6 +28,7 @@ sidebar_position: 8
 | **Notes** | Freitextblock für Notizen und Hinweise. |
 | **Bookmarks** | Sammlung von Weblinks als Kacheln oder Liste. |
 | **Data Quality** | Datenqualitäts-Übersicht (benötigt das Add-on Data Quality). |
+| **Entsorgung** | Laufende und abgeschlossene Entsorgungsvorgänge (benötigt das Add-on Disposal). |
 | **IP Utilization** | Auslastung von Netzwerken inklusive freier IP-Adressen. |
 | **Rack View** | Visualisierung eines Racks in Front- oder Rückansicht. |
 | **Standort-Auswertung** | Zählt oder listet Objekte unterhalb eines Standorts über alle Ebenen. |
