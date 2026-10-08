@@ -7,6 +7,19 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.6] — 08.10.2026
+
+### Behoben: Auswahllisten im Regelwerk ließen sich nicht scrollen
+
+Im Regelwerk-Editor ließ sich das Dropdown **„Kategorie hinzufügen"** nicht
+scrollen — weder mit dem Mausrad noch mit dem Scrollbalken; die Liste sprang
+immer wieder an den Anfang. Dasselbe galt für die Attribut-Auswahl innerhalb
+einer Kategorie. Beide Listen scrollen jetzt wie erwartet und behalten ihre
+Position auch, wenn Sie die Seite dahinter scrollen.
+
+Zusätzlich prüft ein automatischer Browser-Test vor jeder Auslieferung
+solche Bedienfehler, damit sie mit neuen Funktionen nicht erneut hineingeraten.
+
 ## [1.6.5] — 01.10.2026
 
 ### Neu: Mein Arbeitsbereich zeigt die fehlenden Felder
