@@ -7,16 +7,27 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
-## [1.6.7] — 08.10.2026
+## [1.6.6] — 08.10.2026
+Hinweis: Dieses Paket wurde am 08.10.2026 unter derselben Versionsnummer und
+demselben Download-Link um den Status-Titel-Fix und die Dialogwert-Auflösung
+im Regelwerk-Import ergänzt.
+
+### Neu: Regelwerk-Import findet Dialogwerte wieder
+
+Regeln mit festem Wert (zum Beispiel „Rolle = Administrator") nehmen beim
+**Export** jetzt den Werttitel mit. Beim **Import** in ein anderes System wird
+der passende Wert darüber gefunden, auch wenn er dort eine andere interne
+Nummer hat. Fehlt der Wert im Zielsystem, wird die Regel übersprungen und im
+Bericht als „Dialogwert nicht gefunden" ausgewiesen.
+
 
 ### Behoben: CMDB-Status im Auswertungs-Filter ohne Titel
 
 Im Regelwerk-Editor zeigte der **Auswertungs-Filter** die CMDB-Status nur als
 leere Kästchen ohne Beschriftung. Die Titel („In Betrieb", „Geplant" …) werden
 wieder angezeigt, auch für selbst angelegte Status. Betroffen waren die
-Versionen 1.6.2 bis 1.6.6.
+Versionen 1.6.2 bis 1.6.5.
 
-## [1.6.6] — 08.10.2026
 
 ### Behoben: Auswahllisten im Regelwerk ließen sich nicht scrollen
 
