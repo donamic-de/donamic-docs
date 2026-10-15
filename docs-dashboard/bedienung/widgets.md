@@ -19,6 +19,7 @@ sidebar_position: 2
 | **Zahlenfeld-Monitor** | 1×1 | Aggregiert Zahlenwerte (Summe, Durchschnitt, Min, Max) — z. B. Gesamt-RAM aller Server. |
 | **Notizen** | 1×1 | Freitextblock für Hinweise — mit Formatierung und Links. |
 | **Lesezeichen** | 1×1 | Quick-Links zu URLs und i-doit-Objekten, als Liste oder Kacheln. |
+| **Dashboard-Übersicht** | 2×1 | Kacheln, die auf ausgewählte Dashboards verlinken — ideal als Einstiegsseite. |
 | **Datenqualität** | 2×1 | Datenqualitäts-Scorecard (benötigt das Add-on donamic Data Quality). |
 | **Entsorgung** | 2×1 | Laufende und abgeschlossene Entsorgungsvorgänge (benötigt das Add-on donamic Disposal). |
 | **IP-Auslastung** | 2×2 | Auslastungsanalyse von Netzwerken inklusive freier IP-Adressen. |
@@ -56,6 +57,7 @@ Zeigt die Anzahl von Objekten nach Typ oder Status.
 | Objekttyp | Einschränkung auf bestimmte Objekttypen — *nur bei Gesamtanzahl, Nach CMDB-Status oder Trend-Verlauf* | alle |
 | Trend-Zeitraum | 7/14/30/90/180 Tage oder 1 Jahr — *nur bei Trend-Verlauf* | 30 Tage |
 | Als Diagramm anzeigen | Aufschlüsselung grafisch statt als Liste — *nur bei Aufschlüsselungs-Modi* | aus |
+| Darstellung der Aufschlüsselung | **Liste** oder **Kacheln mit Verteilungsbalken** — je Kachel Icon, Anzahl und Beschriftung, darunter ein Balken, dessen farbige Segmente anteilig zur Verteilung breit sind; Klick auf Kachel oder Segment öffnet die Objektliste — *nur bei Aufschlüsselungs-Modi ohne Diagramm* | Liste |
 | Diagrammtyp | Balken-, Säulen- oder Donut-Diagramm — *nur bei aktiviertem Diagramm* | Balken |
 | Balkenstil | Einfarbig oder Gestreift — *nur bei Balken/Säule* | Einfarbig |
 | Limit | Maximale Einträge der Aufschlüsselung (0–200) | 10 |
@@ -142,6 +144,11 @@ speichern") und das **Größenverhältnis** Diagramm/Tabelle (Trennlinie ziehen)
 Kombi-Ansichten filtert ein **Klick auf ein Diagramm-Segment** die Tabelle auf die
 zugehörigen Zeilen (erneuter Klick hebt auf). Die Filterzeile bietet je Spaltentyp
 durchsuchbare Dropdowns, Von/Bis-Datumsauswahl oder Textfilter (`=Wert` filtert exakt).
+Im Werte-Dropdown lässt sich der getippte Suchtext per **Enter als Enthält-Filter**
+übernehmen — z. B. trifft „server" dann Server, Blade Server und Virtueller Server,
+ohne alle Werte anzuhaken. Solche Freitext-Chips wirken zusätzlich zur Checkbox-Auswahl
+(oder-verknüpft), mehrere je Spalte sind möglich. Gilt für alle Tabellen-Widgets
+(Report, Standort-Auswertung, CSV/Externe Datenbank) — auch öffentlich.
 
 :::info Öffentliche Dashboards
 Was für Report-Widgets auf öffentlich geteilten Dashboards gilt, beschreibt
@@ -206,8 +213,30 @@ Aggregiert Zahlenwerte — z. B. Gesamt-RAM aller Server oder Summe der Vertrags
 | Feld | Beschreibung | Standard |
 |---|---|---|
 | Lesezeichen | Bis zu 50 Einträge; je Eintrag Typ (**URL** oder **Objekt** mit Objektsuche) und optionale Bezeichnung | leer |
+| → Öffnen in | je Eintrag: **Automatisch** (externe Links im neuen Tab, i-doit-Links im selben Fenster), **Neuer Tab** oder **Gleiches Fenster** | Automatisch |
+| → Zweite Zeile | je Eintrag: **Automatisch** (Objekttyp bzw. Server/Domain), **Leer** oder **Eigener Text** | Automatisch |
+| → Kachelfarbe | je Eintrag: Farbfelder oder freie Farbe; die Schriftfarbe wählt sich automatisch nach der Helligkeit (dunkle Schrift auf hellen, weiße auf dunklen Farben) — *nur bei Kacheln* | keine |
 | Anzeigemodus | Liste oder Kacheln | Liste |
 | Spalten | Kacheln pro Zeile (1–4) — *nur bei Kacheln* | 3 |
+| Hintergrundfarbe des Widgets | Färbt die gesamte Widget-Fläche; die Schrift im Listenmodus kontrastiert automatisch | keine |
+
+Die Kacheln füllen die eingestellte Widget-Höhe aus; bei vielen Einträgen scrollt das Widget.
+
+## Dashboard-Übersicht
+
+Kacheln, die auf ausgewählte Dashboards verlinken — gedacht als **Root-Dashboard**: eine
+Einstiegsseite, von der aus z. B. Stakeholder in ihre Themen-Dashboards springen.
+
+| Feld | Beschreibung | Standard |
+|---|---|---|
+| Dashboards | Bis zu 30 Einträge; je Eintrag Dashboard-Auswahl (eigene und mit Ihnen geteilte), optionale Bezeichnung, zweite Zeile (**Automatisch** = Dashboard-Beschreibung, **Leer** oder **Eigener Text**) und Kachelfarbe (Schriftfarbe automatisch nach Helligkeit) | leer |
+| Spalten (Kachel-Ansicht) | Kacheln pro Zeile (1–4) | 3 |
+
+Ein Klick auf eine Kachel öffnet das verlinkte Dashboard. Angezeigt werden nur Dashboards,
+auf die die **betrachtende Person** Zugriff hat — teilen Sie das Root-Dashboard mit jemandem,
+der ein verlinktes Dashboard nicht sehen darf, fällt dessen Kachel dort einfach weg. Auf
+öffentlichen Dashboards steht das Widget nicht zur Verfügung (die Ziele wären ohne Anmeldung
+nicht erreichbar); es zeigt dort einen Hinweis.
 
 ## Datenqualität
 
@@ -215,10 +244,14 @@ Benötigt das Add-on **donamic Data Quality** — andernfalls zeigt das Widget e
 
 | Feld | Beschreibung | Standard |
 |---|---|---|
-| Anzeigemodus | Zusammenfassung, Worst-Liste oder Score-Verteilung | Zusammenfassung |
+| Anzeigemodus | Zusammenfassung, **Tacho**, Worst-Liste oder Score-Verteilung | Zusammenfassung |
 | Objekttyp | Einschränkung auf bestimmte Objekttypen | alle |
 | Schwellwert Gut / Warnung (%) | Ab diesem Score gilt „Gut" (grün) bzw. „Warnung" (gelb), darunter „Kritisch" (rot) | 80 / 50 |
+| Zielwert (%) | Zielmarke am Tacho-Bogen; die Unterzeile zeigt „Ziel: X %" bzw. „X-%-Ziel erreicht" — *nur bei Tacho* | 80 |
 | Limit | Einträge der Worst-Liste (5–100) — *nur bei Worst-Liste* | 20 |
+
+Der **Tacho** zeigt den Compliance-Durchschnitt als Halbkreis-Anzeige mit animierter
+Füllung; die Farbe folgt den Schwellwerten (grün/gelb/rot).
 
 ## Entsorgung
 
@@ -265,6 +298,11 @@ auch auf öffentlichen Dashboards zur Verfügung (dort ohne Verlinkung und ohne 
 |---|---|---|
 | Rack | Das darzustellende Rack (mit Suchfeld) | — |
 | Ansicht | Vorderseite, Rückseite oder Beide Seiten | Vorderseite |
+| Farben | **Objekttyp-Farben** (wie die Schrankansicht von i-doit, CMDB-Status als kleine Markierung, Schriftfarbe automatisch nach Helligkeit) oder die bisherige **neutrale Darstellung** mit dem CMDB-Status als Randfarbe | Objekttyp-Farben |
+
+Vertikale Einschübe (vorne/hinten) erscheinen wie in i-doit links und rechts neben den
+Höheneinheiten; die Sortierung der Höheneinheiten und „In Rack anzeigen" je Objekttyp
+werden beachtet.
 
 ## Standort-Auswertung
 

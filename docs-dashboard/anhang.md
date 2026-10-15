@@ -29,6 +29,7 @@ sidebar_position: 8
 | **Bookmarks** | Sammlung von Weblinks als Kacheln oder Liste. |
 | **Data Quality** | Datenqualitäts-Übersicht (benötigt das Add-on Data Quality). |
 | **Entsorgung** | Laufende und abgeschlossene Entsorgungsvorgänge (benötigt das Add-on Disposal). |
+| **Dashboard-Übersicht** | Kacheln, die auf ausgewählte Dashboards verlinken — ideal als Einstiegsseite. |
 | **IP Utilization** | Auslastung von Netzwerken inklusive freier IP-Adressen. |
 | **Rack View** | Visualisierung eines Racks in Front- oder Rückansicht. |
 | **Standort-Auswertung** | Zählt oder listet Objekte unterhalb eines Standorts über alle Ebenen. |

@@ -7,6 +7,45 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Dashboards Pro in verständlicher Form zusammen.
 
+## [1.6.0] — 15.10.2026
+
+### Neu
+
+- **Widget „Dashboard-Übersicht".** Kacheln, die auf ausgewählte Dashboards verlinken — als
+  Root-Dashboard für alle, die mit mehreren Dashboards arbeiten. Je Kachel Dashboard, Bezeichnung,
+  Farbe und zweite Zeile; angezeigt werden nur Dashboards, auf die die betrachtende Person Zugriff
+  hat. Näheres unter [Widgets](bedienung/widgets.md#dashboard-übersicht).
+- **Lesezeichen flexibler.** Je Lesezeichen: Öffnen im neuen Tab oder im selben Fenster, Kachelfarbe
+  und zweite Zeile (automatisch, leer oder eigener Text); dazu eine Hintergrundfarbe für das ganze
+  Widget. Die Schriftfarbe auf farbigen Kacheln wählt sich automatisch nach der Helligkeit.
+  Bestehende Konfigurationen verhalten sich unverändert.
+- **Spaltenfilter mit Suche und Freitext.** Das Werte-Dropdown der Tabellenfilter hat immer ein
+  Suchfeld; getippter Text lässt sich per Enter als Enthält-Filter übernehmen (z. B. trifft „server"
+  Server, Blade Server und Virtueller Server). Mehrere Freitext-Chips je Spalte, kombinierbar mit
+  der Checkbox-Auswahl — in allen Tabellen-Widgets, auch öffentlich.
+- **Tacho-Darstellung für die Datenqualität.** Halbkreis-Anzeige des Compliance-Durchschnitts mit
+  konfigurierbarem Zielwert und Zielmarke; die Farbe folgt den Schwellwerten.
+- **Kacheln mit Verteilungsbalken.** Der Objekt-Zähler zeigt Aufschlüsselungen wahlweise als
+  Kachelzeile mit einem Balken, dessen Segmente anteilig zur Verteilung breit sind; die
+  Entsorgungs-Zusammenfassung nutzt denselben Balken.
+- **Animationen.** Tacho, Zähler und Verteilungsbalken bauen sich beim Laden animiert auf.
+
+### Geändert
+
+- **Rackansicht in Objekttyp-Farben** wie die Schrankansicht von i-doit (CMDB-Status als kleine
+  Markierung); die neutrale Darstellung bleibt wählbar. Vertikale Einschübe erscheinen links und
+  rechts neben den Höheneinheiten, die Sortierung der Höheneinheiten und „In Rack anzeigen" werden
+  beachtet.
+- Kompatibilität mit i-doit 39 und dem kommenden i-doit 40.
+
+### Behoben
+
+- Tabellen sortieren Textspalten mit Ziffern jetzt alphabetisch mit natürlicher Zahlenfolge
+  („MariaDB 10.6" vor „MariaDB 10.11") statt nach der enthaltenen Zahl.
+- Die Diagramm-Legende des Report-Widgets zeigt dieselben übersetzten Objekttyp-Namen wie die
+  Tabelle; der Zahlenfeld-Monitor übersetzt Objekttypen in der Listenansicht.
+- Nach dem Verlassen der Dashboard-Startseite blieb die Breadcrumb-Navigation ausgeblendet.
+
 ## [1.5.2] — 04.09.2026
 
 ### Neu
