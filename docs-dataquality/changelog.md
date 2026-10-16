@@ -7,6 +7,15 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.7] — 16.10.2026
+
+### Behoben: Überschrift der Lizenzseite
+
+War Data Quality das einzige installierte donamic-Add-on, stand auf der Seite
+**donamic Lizenzen** statt der Überschrift ein technischer Platzhalter
+(`LC__DONAMIC_LICENSE__TITLE`). Die Überschrift wird jetzt korrekt angezeigt.
+
+
 ## [1.6.6] — 08.10.2026
 Hinweis: Dieses Paket wurde am 08.10.2026 unter derselben Versionsnummer und
 demselben Download-Link um den Status-Titel-Fix und die Dialogwert-Auflösung

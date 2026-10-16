@@ -27,9 +27,9 @@ wirkt i-doit wie ein Teil Ihrer eigenen Anwendungslandschaft.
 - Auch die **Druckansicht der Objektlisten** übernimmt Logo und Designfarben —
   siehe [Druckansicht](./bedienung/druckansicht.md)
 
-Sechs fertige Vorlagen — **donamic Carbon**, **Copper**, **Indigo**, **Nordic**,
-**Rosé** und **Sage** — dienen als Startpunkt (siehe
-[Mitgelieferte Vorlagen](./bedienung/vorlagen.md)). Eigene Designs lassen sich als
+Zwölf fertige Vorlagen in hellen, dunklen und Varianten mit farbiger Kopfleiste —
+darunter **donamic Light** und **donamic Signature** im Look der donamic-Website —
+dienen als Startpunkt (siehe [Mitgelieferte Vorlagen](./bedienung/vorlagen.md)). Eigene Designs lassen sich als
 Datei exportieren und wieder importieren — praktisch, um ein Design zwischen
 Installationen zu übertragen. Die einzelnen Gestaltungsoptionen beschreibt das
 Kapitel [Gestaltungsoptionen](./bedienung/gestaltung.md).

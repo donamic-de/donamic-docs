@@ -5,6 +5,51 @@ sidebar_position: 90
 
 # Änderungshistorie
 
+## [1.1.5] — 16.10.2026
+
+Diese Version fasst auch die Änderungen der Versionen 1.1.1 bis 1.1.4 zusammen.
+
+### Neu
+
+- **Zwölf neu gestaltete Design-Vorlagen** in drei Gruppen: hell mit heller
+  Navigation (Light, Nordic, Rosé, Sage), hell mit farbiger Kopfleiste
+  (Signature, Aurora, Copper, Indigo, Petrol) und durchgehend dunkel (Carbon,
+  Ember, Volt). Neu dabei sind **donamic Light** und **donamic Signature** in den
+  Farben der donamic-Website sowie Aurora, Ember, Petrol und Volt. Alle
+  Vorlagen bringen das donamic-Logo mit, siehe [Mitgelieferte Vorlagen](./bedienung/vorlagen.md).
+- **Neue Designs starten im i-doit-Standardlook:** Ein neu angelegtes Design ist
+  mit den Farben des i-doit-Standarddesigns vorbelegt, sodass „Speichern und
+  Anwenden" zunächst nichts verfremdet.
+
+### Verbessert
+
+- **Ruhigere Flächen und sichtbarer Hover:** Kopfbänder, Tabellen-Zebra und
+  Fußleisten nutzen die zweite Farbe des **Inhalts-Hintergrunds**, Zeilen und
+  Einträge heben sich beim Überfahren in einem zarten Ton der Link-Farbe ab,
+  Rahmen und Trennlinien sind auf hellen wie dunklen Designs sichtbar. Prüfen
+  Sie bei eigenen Designs, ob die zweite Hintergrundfarbe passend gesetzt ist.
+- Kompatibel mit i-doit 39 und vorbereitet auf i-doit 40.
+
+### Behoben
+
+- **Lizenzseite ohne weitere donamic-Add-ons:** War Design das einzige
+  donamic-Add-on, blieb die Seite **donamic Lizenzen** leer, und der
+  Lizenzschlüssel ließ sich nicht eintragen. *(1.1.5)*
+- Der Link **donamic Lizenzen verwalten** im Lizenzhinweis funktioniert jetzt auch,
+  wenn i-doit in einem Unterverzeichnis läuft. *(1.1.5)*
+- **Große Logos:** Auf Installationen, die von einer älteren Version
+  aktualisiert wurden, wurden große Logos beim Speichern abgeschnitten. Die
+  Datenbank wird beim Update jetzt richtig erweitert; lässt sich ein Logo
+  trotzdem nicht vollständig speichern, erscheint eine Meldung, statt dass es
+  unbemerkt beschädigt wird.
+- **Mehrere Mandanten:** „Design anwenden" in einem Mandanten überschrieb das Logo
+  der anderen Mandanten. Jeder Mandant behält jetzt sein eigenes Logo.
+- In dunklen Designs sind der rote Eintrag in Auswahlmenüs und die Fußleiste
+  von Dialogfenstern wieder lesbar.
+- Schaltflächen, die nur ein Symbol zeigen, sind wieder mittig ausgerichtet.
+- Schlägt ein Design-Import auf dem Server fehl, erscheint eine verständliche
+  Fehlermeldung statt keiner Rückmeldung.
+
 ## [1.1.0] — 01.09.2026
 
 ### Neu
