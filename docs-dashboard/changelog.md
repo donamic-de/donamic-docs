@@ -7,6 +7,16 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Dashboards Pro in verständlicher Form zusammen.
 
+## [1.6.1] — 20.10.2026
+
+### Neu
+
+- **Diagramm-Sortierung konfigurierbar** in den Widgets Report, CSV-Datei und Externe Datenbank:
+  Wert (größte zuerst, wie bisher), Beschriftung auf- oder absteigend (natürlich sortiert — Monate
+  wie `2026-01` ebenso wie „KW 9" vor „KW 10") oder Reihenfolge der Datenquelle (ein `ORDER BY`
+  der Abfrage bleibt im Diagramm erhalten). Damit lassen sich Zeitreihen wie „Objekte pro Monat"
+  chronologisch statt nach Anzahl darstellen — eine Anregung aus dem Anwenderkreis.
+
 ## [1.6.0] — 15.10.2026
 
 ### Neu

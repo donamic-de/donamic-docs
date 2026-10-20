@@ -138,6 +138,7 @@ Zeigt einen gespeicherten i-doit-Report als Tabelle und/oder Diagramm.
 | Aggregation | Anzahl (COUNT), Summe (SUM), Durchschnitt (AVG) oder Keine (für bereits aggregierte Reports) — *nur bei Diagramm* | Anzahl |
 | Wert-Spalte | Zahlenspalte für Summe/Durchschnitt — *nur bei entsprechender Aggregation* | — |
 | Max. Diagramm-Einträge | Einträge im Diagramm (3–50); überzählige werden zu „Andere" zusammengefasst | 10 |
+| Diagramm-Sortierung | Wert, größte zuerst; Beschriftung aufsteigend (A–Z, ältester Monat zuerst); Beschriftung absteigend (Z–A, neuester Monat zuerst); Reihenfolge der Datenquelle. Bei Beschriftungs-/Quell-Sortierung landen die *ersten* Einträge der gewählten Ordnung im Diagramm, der Rest wird zu „Andere" — *nur bei Diagramm* | Wert, größte zuerst |
 
 Zusätzlich über die Widget-Oberfläche gespeichert: der **Spaltenfilter** („Aktuellen Filter
 speichern") und das **Größenverhältnis** Diagramm/Tabelle (Trennlinie ziehen). In den
@@ -379,6 +380,7 @@ Typ CSV bereitgestellt — siehe [Datenquellen](./datenquellen.md).
 | Berechnung | Anzahl der Zeilen, Summe, Durchschnitt, Minimum oder Maximum einer Wertspalte — *nur bei Diagramm* | Anzahl |
 | Wert-Spalte | Zahlenspalte (gekennzeichnet) — *nur bei Summe/Durchschnitt/Min/Max* | — |
 | Max. Diagramm-Einträge | Überzählige Einträge werden zu „Andere" zusammengefasst | 10 |
+| Diagramm-Sortierung | Wert, größte zuerst; Beschriftung auf-/absteigend (natürlich sortiert, z. B. Monate); Reihenfolge der Datenquelle — *nur bei Diagramm* | Wert, größte zuerst |
 
 Zellen werden als reiner Text dargestellt — HTML aus fremden Systemen wird nicht
 interpretiert.
@@ -396,7 +398,7 @@ Die Verbindung wird als **Datenquelle** von einem Administrator angelegt — sie
 | Anzeigemodus | Tabelle, Diagramm oder KPI-Karte | Tabelle |
 | Maximale Zeilen | Obergrenze der geladenen Zeilen — *nur bei Tabelle/Diagramm* | 100 |
 | Aktualisierung | Zwischenspeicher: keine, 30 s, 1 min, 5 min, 15 min, 1 h — Dashboards treffen das Fremdsystem nicht bei jedem Reload | 1 min |
-| Diagrammtyp, Label-Spalte, Berechnung, Wert-Spalte, Max. Einträge | Wie beim Widget „CSV-Datei"; die Spalten stammen aus dem Abfrageergebnis — *nur bei Diagramm* | — |
+| Diagrammtyp, Label-Spalte, Berechnung, Wert-Spalte, Max. Einträge, Diagramm-Sortierung | Wie beim Widget „CSV-Datei"; die Spalten stammen aus dem Abfrageergebnis. **Reihenfolge der Datenquelle** übernimmt das `ORDER BY` der Abfrage ins Diagramm — *nur bei Diagramm* | — |
 | KPI-Bezeichnung / Einheit | Beschriftung und Einheit der Kennzahl (erster Wert der ersten Zeile) — *nur bei KPI-Karte* | — |
 
 :::tip Nur-Lese-Benutzer
