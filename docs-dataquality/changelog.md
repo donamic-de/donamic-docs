@@ -7,6 +7,27 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.8] — 21.10.2026
+
+### Behoben: Kachel „Doppelte Kennungen“ schnitt einen Wert ab
+
+Gab es gleichzeitig doppelte Objektnamen, Seriennummern, Inventarnummern und
+Hostnamen, passte die vierte Kennzahl nicht mehr in die Kachel und wurde
+abgeschnitten („HO…“). Die Kennzahlen brechen jetzt in eine zweite Zeile um.
+
+### Behoben: „Logbuch-Aktivität“ durchgehend auf Deutsch
+
+Kachel, Seitentitel und Kennzahlen hießen teilweise noch „Logbook“. Sie
+verwenden jetzt durchgehend den i-doit-Begriff „Logbuch“.
+
+### Behoben: Regelwerk-Import mit festem Wert auf Feldern ohne Auswahlwerte
+
+Eine importierte Regel mit festem Wert auf einem Feld ohne Auswahlwerte (zum
+Beispiel einem Datumsfeld) wurde mit dem Wert 0 angelegt, den kein Objekt
+erfüllt. Die Compliance fiel dadurch auf 0 %. Solche Regeln werden jetzt
+übersprungen und im Bericht als „Dialogwert nicht gefunden“ ausgewiesen.
+
+
 ## [1.6.7] — 16.10.2026
 
 ### Behoben: Überschrift der Lizenzseite
