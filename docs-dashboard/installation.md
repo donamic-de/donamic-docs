@@ -20,6 +20,17 @@ Dieses Kapitel richtet sich an **Administratoren**.
 Das Add-on ist vollständig in i-doit integriert und benötigt keine zusätzliche
 Software. Alle Oberflächen werden mit dem Paket ausgeliefert.
 
+## Paket herunterladen
+
+Das aktuelle Installationspaket erhalten Sie jederzeit über den festen Download-Link:
+
+**https://donamic.de/download/addon/donamic_dashboard**
+
+Der Link zeigt immer auf die neueste veröffentlichte Version. Sie können ihn als
+Lesezeichen speichern und für jedes Update erneut verwenden. Eine bestimmte Version
+laden Sie, indem Sie die Versionsnummer anhängen, zum Beispiel
+`https://donamic.de/download/addon/donamic_dashboard/1.0.0`.
+
 ## Add-on installieren
 
 Die Installation erfolgt im **Admin-Center** von i-doit. Innerhalb der

@@ -15,6 +15,17 @@ Dieses Kapitel richtet sich an **Administratoren**.
 | Browser | Aktuelle Version von Firefox, Chrome, Edge oder Safari |
 | Lizenz | Gültige Lizenz für `donamic_inheritance` (siehe unten) |
 
+## Paket herunterladen
+
+Das aktuelle Installationspaket erhalten Sie jederzeit über den festen Download-Link:
+
+**https://donamic.de/download/addon/donamic_inheritance**
+
+Der Link zeigt immer auf die neueste veröffentlichte Version. Sie können ihn als
+Lesezeichen speichern und für jedes Update erneut verwenden. Eine bestimmte Version
+laden Sie, indem Sie die Versionsnummer anhängen, zum Beispiel
+`https://donamic.de/download/addon/donamic_inheritance/1.0.0`.
+
 ## Add-on installieren
 
 Die Installation erfolgt im **Admin-Center** von i-doit — innerhalb der

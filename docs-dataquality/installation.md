@@ -21,6 +21,17 @@ Das Add-on nutzt ausschließlich die Datenbank Ihres i-doit-Mandanten; es sind k
 zusätzlichen Server oder Dienste erforderlich. Die regelmäßige Auswertung läuft auf
 Knopfdruck oder zeitgesteuert (siehe [Konfiguration](./konfiguration.md)).
 
+## Paket herunterladen
+
+Das aktuelle Installationspaket erhalten Sie jederzeit über den festen Download-Link:
+
+**https://donamic.de/download/addon/donamic_dataquality**
+
+Der Link zeigt immer auf die neueste veröffentlichte Version. Sie können ihn als
+Lesezeichen speichern und für jedes Update erneut verwenden. Eine bestimmte Version
+laden Sie, indem Sie die Versionsnummer anhängen, zum Beispiel
+`https://donamic.de/download/addon/donamic_dataquality/1.0.0`.
+
 ## Add-on installieren
 
 Die Installation erfolgt im **Admin-Center** von i-doit. Innerhalb der

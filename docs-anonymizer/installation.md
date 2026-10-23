@@ -18,6 +18,17 @@ Dieses Kapitel richtet sich an **Administratoren**.
 Der Anonymizer wird ausschließlich über die Konsole ausgeführt und benötigt daher
 Zugriff auf den Server, auf dem i-doit läuft.
 
+## Paket herunterladen
+
+Das aktuelle Installationspaket erhalten Sie jederzeit über den festen Download-Link:
+
+**https://donamic.de/download/addon/donamic_anonymisierung**
+
+Der Link zeigt immer auf die neueste veröffentlichte Version. Sie können ihn als
+Lesezeichen speichern und für jedes Update erneut verwenden. Eine bestimmte Version
+laden Sie, indem Sie die Versionsnummer anhängen, zum Beispiel
+`https://donamic.de/download/addon/donamic_anonymisierung/1.0.0`.
+
 ## Add-on installieren
 
 Die Installation erfolgt im **Admin-Center** von i-doit — innerhalb der

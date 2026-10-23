@@ -78,3 +78,30 @@
   font-weight: 600;
   color: var(--ifm-color-primary);
 }
+
+/* Der klickbare Hauptbereich der Karte (Handbuch) */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cardBody:hover {
+  text-decoration: none;
+}
+
+/* Download der aktuellen Version über den festen Link */
+.cardDownload {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--ifm-toc-border-color);
+  font-size: 0.9rem;
+  color: var(--ifm-font-color-secondary);
+}
+
+.cardDownload:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}

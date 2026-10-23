@@ -28,13 +28,22 @@ function AddonCards() {
       <div className="container">
         <div className={styles.cardGrid}>
           {addons.map((addon) => (
-            <Link key={addon.id} to={`/${addon.id}/`} className={styles.card}>
-              <Heading as="h2" className={styles.cardTitle}>
-                {addon.label}
-              </Heading>
-              <p className={styles.cardText}>{addon.description}</p>
-              <span className={styles.cardLink}>Handbuch öffnen →</span>
-            </Link>
+            <div key={addon.id} className={styles.card}>
+              <Link to={`/${addon.id}/`} className={styles.cardBody}>
+                <Heading as="h2" className={styles.cardTitle}>
+                  {addon.label}
+                </Heading>
+                <p className={styles.cardText}>{addon.description}</p>
+                <span className={styles.cardLink}>Handbuch öffnen →</span>
+              </Link>
+              {/* Fester Link: zeigt immer auf die neueste veröffentlichte Version */}
+              <a
+                href={addon.download}
+                className={styles.cardDownload}
+                title="Aktuelle Version herunterladen (fester Link)">
+                ↓ Aktuelle Version{addon.version ? ` (${addon.version})` : ''} herunterladen
+              </a>
+            </div>
           ))}
         </div>
       </div>
