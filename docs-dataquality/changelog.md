@@ -7,6 +7,22 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.9] — 06.11.2026
+
+### Behoben: IP-Konflikte fanden doppelte Adressen nicht
+
+Die Analyse las ein veraltetes Adressfeld, das i-doit bei aktuellen Installationen
+nicht mehr füllt. Sie meldete deshalb „keine Konflikte“, obwohl dieselbe Adresse an
+mehreren Objekten hing. Jetzt liest sie die Adressen dort, wo i-doit sie speichert.
+Als Konflikt gilt dieselbe Adresse im selben Netz an mindestens zwei Objekten; gleiche
+Adressen in getrennten Netzen sind kein Konflikt. Jede Konfliktkarte und der Export
+zeigen das Netz mit an.
+
+### Behoben: Kachel „Isolierte Objekte“ zählte anders als die Liste
+
+Die Kachel auf dem Analyse-Dashboard berücksichtigte auch archivierte oder gelöschte
+Beziehungen und Objekttypen. Sie zählt jetzt nach derselben Logik wie die Liste.
+
 ## [1.6.8] — 21.10.2026
 
 ### Behoben: Kachel „Doppelte Kennungen“ schnitt einen Wert ab
