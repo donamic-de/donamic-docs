@@ -19,7 +19,7 @@
     "id": "disposal",
     "addonDir": "donamic_disposal",
     "label": "Disposal",
-    "version": "1.2.11",
+    "version": "1.2.20",
     "description": "Strukturierter Entsorgungs-Workflow für ausgemusterte Objekte.",
     "download": "https://donamic.de/download/addon/donamic_disposal"
   },

@@ -24,6 +24,29 @@ der Einlagerung, ob eine **weitere Nutzung** vorgesehen ist und ob die
 **Datenlöschung** erfolgt ist. Mit Abschluss dieses Schritts wechselt das Objekt in
 den Status **In Entsorgung**.
 
+#### Weitere Verwendung: eigene Werte anlegen
+
+Das Feld **Weitere Verwendung** ist eine Auswahlliste, die Ihr Unternehmen selbst
+pflegt. Sie wird bei der Installation bewusst **leer** ausgeliefert, weil jede
+Organisation eigene Kategorien hat (z. B. Weitergabe an Mitarbeitende, Spende,
+Verkauf, Rückgabe an den Leasinggeber).
+
+So legen Sie einen neuen Wert an:
+
+1. Klicken Sie neben der Auswahl auf **+ Neu**.
+2. Geben Sie die Bezeichnung ein und bestätigen Sie mit **Übernehmen** oder der
+   Eingabetaste. Mit **Abbrechen** bzw. Esc verwerfen Sie die Eingabe.
+3. Der neue Wert steht sofort in der Liste und ist direkt ausgewählt. Er steht
+   ab dann auch bei allen weiteren Entsorgungsvorgängen zur Verfügung.
+
+Gibt es die Bezeichnung bereits (auch in anderer Groß-/Kleinschreibung), wird kein
+doppelter Eintrag angelegt, sondern der vorhandene Wert ausgewählt.
+
+:::info Berechtigung
+Neue Werte anlegen kann nur, wer Schritt 1 abschließen darf (Recht **Entsorgungsschritt** für
+Schritt 1, siehe [Berechtigungen](./berechtigungen.md)).
+:::
+
 ### Schritt 2 – Sachliche Freigabe
 Die Team-Leitung bestätigt, dass die bisherigen Angaben korrekt sind.
 
