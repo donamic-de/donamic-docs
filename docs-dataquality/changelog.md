@@ -7,6 +7,16 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.10] — 18.11.2026
+
+### Behoben: Benachrichtigung fand keine E-Mail-Adressen
+
+Der Cron-Job meldete „keine Empfänger mit E-Mail-Adresse“, obwohl die Person eine
+Adresse hatte. Das Add-on las die Adresse aus einem veralteten Personenfeld. Jetzt liest
+es die primäre Adresse aus der i-doit-Kategorie **E-Mail-Adressen** – für einzelne
+Personen ebenso wie für die Mitglieder von Personengruppen. Die Empfängersuche im
+Regelwerk findet Personen jetzt auch über ihre E-Mail-Adresse.
+
 ## [1.6.9] — 06.11.2026
 
 ### Behoben: IP-Konflikte fanden doppelte Adressen nicht

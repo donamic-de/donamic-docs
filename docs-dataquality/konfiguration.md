@@ -23,7 +23,15 @@ einstellen:
 - **Zeitplan** — täglich, wöchentlich (mit Wochentag) oder monatlich.
 - **Uhrzeit** — frühester Versandzeitpunkt.
 - **Empfänger** — Personen oder Gruppen aus der CMDB. Bei Gruppen erhalten alle
-  Mitglieder mit hinterlegter E-Mail-Adresse den Bericht.
+  Mitglieder mit hinterlegter E-Mail-Adresse den Bericht. Bei der Suche können Sie
+  den Namen oder die E-Mail-Adresse der Person eingeben.
+
+:::info Woher die E-Mail-Adresse kommt
+Das Add-on verschickt an die **primäre Adresse** aus der Kategorie **E-Mail-Adressen**
+der Person. Das gilt für einzeln ausgewählte Personen und für die Mitglieder von
+Personengruppen. Hat eine Person dort keine Adresse oder keine als primär markiert,
+erhält sie keinen Bericht.
+:::
 
 Gespeichert wird zusammen mit dem Regelwerk über **Speichern**.
 
@@ -63,6 +71,12 @@ Die Auswertung lässt sich auf drei Wegen anstoßen:
 
    Das Skript ist ausschließlich über die Kommandozeile ausführbar; ein Aufruf über den
    Browser wird abgewiesen.
+
+   Meldet der Cron-Job **„keine Empfänger mit E-Mail-Adresse“**, war ein Bericht fällig,
+   aber keiner der eingetragenen Empfänger hat eine primäre Adresse in der Kategorie
+   **E-Mail-Adressen**. Es wurde nichts verschickt. Tragen Sie bei den Personen (bzw.
+   den Gruppenmitgliedern) eine Adresse ein und markieren Sie sie als primär; der
+   nächste Lauf holt den Versand dann nach.
 
 Bei jeder Auswertung wird ein **Snapshot** des Compliance-Standes festgehalten —
 daraus ergibt sich der Trend-Verlauf in der Übersicht.

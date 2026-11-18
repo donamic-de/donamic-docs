@@ -15,6 +15,7 @@ sidebar_position: 7
 | Archivieren scheitert mit 403 | Nutzer hat kein `Administrieren`-Recht. | Rolle anpassen (siehe [Berechtigungen](./berechtigungen.md)). |
 | Eine Regel wird scheinbar ignoriert | Mehrfachauswahl-Felder (z. B. Tags) werden bewusst nicht geprüft, da eine einfache Ausgefüllt-Prüfung dort kein aussagekräftiges Ergebnis liefert. | Andere Regelart wählen oder eine Regel auf einem geeigneteren Feld verwenden. |
 | Snapshots sehen alle gleich aus | Trigger läuft seltener als gewünscht. | Cron-Frequenz erhöhen oder manuell anstoßen. |
+| Cron-Job meldet „keine Empfänger mit E-Mail-Adresse“ | Keiner der Empfänger (bzw. kein Gruppenmitglied) hat eine primäre Adresse in der Kategorie **E-Mail-Adressen**. Bis Version 1.6.9 las das Add-on zudem ein veraltetes Personenfeld. | Ab Version 1.6.10: bei den Personen eine Adresse in **E-Mail-Adressen** eintragen und als primär markieren (siehe [Konfiguration](./konfiguration.md#profil--benachrichtigungen)). |
 
 ## Log-Dateien
 
