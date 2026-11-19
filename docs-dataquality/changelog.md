@@ -7,6 +7,18 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.11] — 19.11.2026
+
+### Behoben: Benachrichtigungs-Mail kam nicht an
+
+Der Cron-Job meldete „versendet=ja“, die Mail kam aber nie an. Das Add-on rief die
+Mailbibliothek von i-doit falsch auf; im `exception.log` stand „Call to undefined method
+isys_library_mail::get_instance()“. Jetzt läuft der Versand über die
+**SMTP-Konfiguration** von i-doit (**Verwaltung → Import und Schnittstellen →
+SMTP-Konfiguration**). Schlägt der Versand fehl oder ist kein Mailserver eingerichtet,
+meldet der Cron-Job „versendet=nein“ samt Grund, zum Beispiel „Versand fehlgeschlagen:
+No mail server configured! …“. Der nächste Lauf versucht den Versand dann erneut.
+
 ## [1.6.10] — 18.11.2026
 
 ### Behoben: Benachrichtigung fand keine E-Mail-Adressen

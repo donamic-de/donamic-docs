@@ -16,6 +16,8 @@ sidebar_position: 7
 | Eine Regel wird scheinbar ignoriert | Mehrfachauswahl-Felder (z. B. Tags) werden bewusst nicht geprüft, da eine einfache Ausgefüllt-Prüfung dort kein aussagekräftiges Ergebnis liefert. | Andere Regelart wählen oder eine Regel auf einem geeigneteren Feld verwenden. |
 | Snapshots sehen alle gleich aus | Trigger läuft seltener als gewünscht. | Cron-Frequenz erhöhen oder manuell anstoßen. |
 | Cron-Job meldet „keine Empfänger mit E-Mail-Adresse“ | Keiner der Empfänger (bzw. kein Gruppenmitglied) hat eine primäre Adresse in der Kategorie **E-Mail-Adressen**. Bis Version 1.6.9 las das Add-on zudem ein veraltetes Personenfeld. | Ab Version 1.6.10: bei den Personen eine Adresse in **E-Mail-Adressen** eintragen und als primär markieren (siehe [Konfiguration](./konfiguration.md#profil--benachrichtigungen)). |
+| Cron-Job meldet „versendet=nein, hinweis=Versand fehlgeschlagen …“ | Die Mail konnte nicht verschickt werden, zum Beispiel weil in i-doit kein Mailserver eingerichtet ist („No mail server configured!“) oder der Mailserver die Mail abweist. | **SMTP-Konfiguration** prüfen (**Verwaltung → Import und Schnittstellen → SMTP-Konfiguration**). Der nächste Cron-Lauf versucht den Versand erneut. |
+| Cron-Job meldet „versendet=ja“, aber es kommt keine Mail an (bis Version 1.6.10) | Fehlerhafter Aufruf der i-doit-Mailbibliothek; im `exception.log` steht „Call to undefined method isys_library_mail::get_instance()“. | Auf Version 1.6.11 aktualisieren. |
 
 ## Log-Dateien
 

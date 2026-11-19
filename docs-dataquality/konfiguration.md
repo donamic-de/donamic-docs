@@ -40,6 +40,12 @@ Die Einstellungen allein genügen nicht — Auswertung und Versand werden durch 
 **Cron-Job auf dem Server** ausgelöst (siehe nächster Abschnitt).
 :::
 
+:::info Mailversand über die SMTP-Konfiguration von i-doit
+Das Add-on verschickt die Berichte über den Mailserver, den Sie in i-doit unter
+**Verwaltung → Import und Schnittstellen → SMTP-Konfiguration** eingerichtet haben.
+Ist dort kein Mailserver hinterlegt, kann kein Bericht verschickt werden.
+:::
+
 ## Auswertungs-Trigger
 
 Die Auswertung lässt sich auf drei Wegen anstoßen:
@@ -77,6 +83,11 @@ Die Auswertung lässt sich auf drei Wegen anstoßen:
    **E-Mail-Adressen**. Es wurde nichts verschickt. Tragen Sie bei den Personen (bzw.
    den Gruppenmitgliedern) eine Adresse ein und markieren Sie sie als primär; der
    nächste Lauf holt den Versand dann nach.
+
+   Meldet der Cron-Job **„versendet=nein“** mit einem Hinweis wie **„Versand
+   fehlgeschlagen: No mail server configured! …“**, konnte die Mail nicht verschickt
+   werden. Prüfen Sie die **SMTP-Konfiguration** von i-doit (**Verwaltung → Import und
+   Schnittstellen → SMTP-Konfiguration**). Der nächste Lauf versucht den Versand erneut.
 
 Bei jeder Auswertung wird ein **Snapshot** des Compliance-Standes festgehalten —
 daraus ergibt sich der Trend-Verlauf in der Übersicht.
