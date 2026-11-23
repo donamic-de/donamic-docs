@@ -73,7 +73,8 @@ Die Auswertung lässt sich auf drei Wegen anstoßen:
    verschickt. Bei mehreren Mandanten legen Sie je Mandant einen Eintrag an.
 
    Zusätzliche Optionen: `--dry-run` (nichts versenden oder speichern — gut zum Prüfen),
-   `--force` (Fälligkeitsprüfung übergehen), `--no-evaluate` (nur versenden).
+   `--force` (Fälligkeitsprüfung übergehen), `--no-evaluate` (nur versenden),
+   `--lang=en` (Mail auf Englisch statt Deutsch, ab Version 1.6.12).
 
    Das Skript ist ausschließlich über die Kommandozeile ausführbar; ein Aufruf über den
    Browser wird abgewiesen.

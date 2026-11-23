@@ -18,6 +18,8 @@ sidebar_position: 7
 | Cron-Job meldet „keine Empfänger mit E-Mail-Adresse“ | Keiner der Empfänger (bzw. kein Gruppenmitglied) hat eine primäre Adresse in der Kategorie **E-Mail-Adressen**. Bis Version 1.6.9 las das Add-on zudem ein veraltetes Personenfeld. | Ab Version 1.6.10: bei den Personen eine Adresse in **E-Mail-Adressen** eintragen und als primär markieren (siehe [Konfiguration](./konfiguration.md#profil--benachrichtigungen)). |
 | Cron-Job meldet „versendet=nein, hinweis=Versand fehlgeschlagen …“ | Die Mail konnte nicht verschickt werden, zum Beispiel weil in i-doit kein Mailserver eingerichtet ist („No mail server configured!“) oder der Mailserver die Mail abweist. | **SMTP-Konfiguration** prüfen (**Verwaltung → Import und Schnittstellen → SMTP-Konfiguration**). Der nächste Cron-Lauf versucht den Versand erneut. |
 | Cron-Job meldet „versendet=ja“, aber es kommt keine Mail an (bis Version 1.6.10) | Fehlerhafter Aufruf der i-doit-Mailbibliothek; im `exception.log` steht „Call to undefined method isys_library_mail::get_instance()“. | Auf Version 1.6.11 aktualisieren. |
+| Mail ohne Objektnamen, „%“ statt fehlender Felder, CSS-Code im Mailtext, immer „20 Objekte“ (bis Version 1.6.11) | Fehler im Aufbau der Mail. | Auf Version 1.6.12 aktualisieren. |
+| Mail enthält keine Links | In den Systemeinstellungen ist unter **URL Einstellungen** keine **i-doit Adresse (URL)** hinterlegt. | Adresse eintragen, zum Beispiel `https://i-doit.example.de/`. |
 
 ## Log-Dateien
 

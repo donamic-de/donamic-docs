@@ -7,6 +7,25 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.12] — 23.11.2026
+
+### Behoben: Benachrichtigungs-Mail war unvollständig
+
+Die Mail kam an, war aber kaum lesbar: Objektnamen fehlten, in der Spalte der fehlenden
+Felder stand nur „%“, der Knopf zum Dashboard führte ins Leere, und in Outlook erschien
+CSS-Code als Text. Außerdem nannte der Betreff immer „20 Objekte“, egal wie viele Objekte
+Lücken hatten. Jetzt zeigt die Mail die tatsächliche Zahl der Objekte mit Lücken, die
+Erfüllungsgrade je Objekttyp und die 20 Objekte mit den meisten Lücken, jeweils mit
+„offene Prüfungen: x von y“. Jedes Objekt und der Knopf „Datenqualität in i-doit öffnen“
+sind Links in i-doit. Die Mail ist auf Deutsch; mit der Cron-Option `--lang=en` kommt sie
+auf Englisch.
+
+:::info Links in der Mail
+Die Links setzen sich aus der **i-doit Adresse (URL)** zusammen, die in den
+Systemeinstellungen unter **URL Einstellungen** hinterlegt ist. Ist sie leer, enthält die
+Mail keine Links.
+:::
+
 ## [1.6.11] — 19.11.2026
 
 ### Behoben: Benachrichtigungs-Mail kam nicht an
