@@ -9,6 +9,14 @@ Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality
 
 ## [1.6.13] — 24.11.2026
 
+### Neu: Mail in der Sprache des Empfängers
+
+Jede Person erhält den Bericht jetzt in ihrer i-doit-Sprache, also in der Sprache aus den
+Benutzereinstellungen. Deutsche und englische Empfänger bekommen jeweils eine eigene Mail
+mit übersetzten Objekttypen und passendem Zahlenformat. Wer keine eigene Einstellung hat,
+erhält die Standardsprache von i-doit. Details unter
+[Konfiguration](./konfiguration.md#profil--benachrichtigungen).
+
 ### Neu: Entwarnung per Mail
 
 Bisher kam keine Mail, wenn keine Lücken gefunden wurden. Empfänger konnten dann nicht
@@ -44,7 +52,7 @@ Lücken hatten. Jetzt zeigt die Mail die tatsächliche Zahl der Objekte mit Lüc
 Erfüllungsgrade je Objekttyp und die 20 Objekte mit den meisten Lücken, jeweils mit
 „offene Prüfungen: x von y“. Jedes Objekt und der Knopf „Datenqualität in i-doit öffnen“
 sind Links in i-doit. Die Mail ist auf Deutsch; mit der Cron-Option `--lang=en` kommt sie
-auf Englisch.
+auf Englisch (ab 1.6.13 richtet sich die Sprache nach dem Empfänger).
 
 :::info Links in der Mail
 Die Links setzen sich aus der **i-doit Adresse (URL)** zusammen, die in den

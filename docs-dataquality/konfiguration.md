@@ -30,6 +30,14 @@ einstellen:
   Mitglieder mit hinterlegter E-Mail-Adresse den Bericht. Bei der Suche können Sie
   den Namen oder die E-Mail-Adresse der Person eingeben.
 
+:::info In welcher Sprache die Mail kommt
+Ab Version 1.6.13 erhält jede Person den Bericht in der Sprache, die sie in i-doit unter
+**Benutzereinstellungen** eingestellt hat (Deutsch oder Englisch). Personen ohne
+i-doit-Login oder mit der Einstellung „Browsersprache“ erhalten die **Standardsprache**
+aus den Systemeinstellungen von i-doit. Ist auch dort die Browsersprache gewählt, gilt die
+Cron-Option `--lang` (Standard: Deutsch).
+:::
+
 :::info Woher die E-Mail-Adresse kommt
 Das Add-on verschickt an die **primäre Adresse** aus der Kategorie **E-Mail-Adressen**
 der Person. Das gilt für einzeln ausgewählte Personen und für die Mitglieder von
@@ -78,7 +86,7 @@ Die Auswertung lässt sich auf drei Wegen anstoßen:
 
    Zusätzliche Optionen: `--dry-run` (nichts versenden oder speichern — gut zum Prüfen),
    `--force` (Fälligkeitsprüfung übergehen), `--no-evaluate` (nur versenden),
-   `--lang=en` (Mail auf Englisch statt Deutsch, ab Version 1.6.12).
+   `--lang=en` (Rückfallsprache für Empfänger ohne eigene Spracheinstellung, Standard: Deutsch).
 
    Das Skript ist ausschließlich über die Kommandozeile ausführbar; ein Aufruf über den
    Browser wird abgewiesen.
