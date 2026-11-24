@@ -20,6 +20,10 @@ Im **Regelwerk** finden Sie den Abschnitt **Benachrichtigungen**. Dort lassen si
 einstellen:
 
 - **Bericht per E-Mail versenden** — aktiviert den Versand (standardmäßig aus).
+- **Auch versenden, wenn keine Lücken gefunden wurden** — schickt den Bericht auch dann,
+  wenn alle Prüfungen erfüllt sind (Betreff „keine Lücken gefunden“). So sehen Empfänger,
+  dass der Bericht weiterhin läuft. Standardmäßig aus; dann kommt ohne Lücken keine Mail.
+  Ab Version 1.6.13.
 - **Zeitplan** — täglich, wöchentlich (mit Wochentag) oder monatlich.
 - **Uhrzeit** — frühester Versandzeitpunkt.
 - **Empfänger** — Personen oder Gruppen aus der CMDB. Bei Gruppen erhalten alle

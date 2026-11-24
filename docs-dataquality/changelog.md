@@ -7,6 +7,32 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.13] — 24.11.2026
+
+### Neu: Entwarnung per Mail
+
+Bisher kam keine Mail, wenn keine Lücken gefunden wurden. Empfänger konnten dann nicht
+erkennen, ob der Bericht noch läuft. Bei den Benachrichtigungen gibt es jetzt die Option
+**Auch versenden, wenn keine Lücken gefunden wurden**. Ist sie aktiv, kommt der Bericht
+mit dem Betreff „keine Lücken gefunden“ und dem Hinweis, dass alle Prüfungen erfüllt sind.
+Die Option ist standardmäßig ausgeschaltet.
+
+### Behoben: Feinschliff der Benachrichtigungs-Mail
+
+- Der Erfüllungsgrad zeigte „100 %“, obwohl noch Lücken offen waren (zum Beispiel bei
+  2.719 von 2.720 erfüllten Prüfungen). Jetzt steht dort „99,9 %“; 100 % erscheint nur
+  bei echter Vollständigkeit.
+- Bei genau einem Objekt heißt es jetzt „1 Objekt mit Lücken“ statt „1 Objekte“.
+- Große Zahlen bekommen Tausenderpunkte, die englische Mail nutzt das englische
+  Zahlenformat.
+- Objekttypen ohne Prüfungen zeigen „–“ statt „0 %“.
+
+### Behoben: veraltete Dateien im Add-on-Verzeichnis
+
+Ältere Pakete enthielten Entwicklerdateien (Ordner `tools`), die ohne Anmeldung über den
+Webserver abrufbar waren. Sie enthalten keine Daten aus Ihrer CMDB und werden beim Update
+automatisch entfernt.
+
 ## [1.6.12] — 23.11.2026
 
 ### Behoben: Benachrichtigungs-Mail war unvollständig
