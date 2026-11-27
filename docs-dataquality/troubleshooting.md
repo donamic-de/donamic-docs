@@ -21,6 +21,8 @@ sidebar_position: 7
 | Mail ohne Objektnamen, „%“ statt fehlender Felder, CSS-Code im Mailtext, immer „20 Objekte“ (bis Version 1.6.11) | Fehler im Aufbau der Mail. | Auf Version 1.6.12 aktualisieren. |
 | Es kommt keine Mail, obwohl der Cron-Job läuft und Empfänger eingetragen sind | Es wurden keine Lücken gefunden. Ohne Lücken verschickt das Add-on standardmäßig keinen Bericht; der Cron-Job meldet „hinweis=keine Objekte mit Lücken“. | Ab Version 1.6.13 die Option **Auch versenden, wenn keine Lücken gefunden wurden** einschalten (siehe [Konfiguration](./konfiguration.md#profil--benachrichtigungen)). |
 | Cron-Job meldet „Versand fehlgeschlagen: SMTP Error: Could not connect to SMTP host“ | i-doit erreicht den eingetragenen Mailserver nicht, etwa wegen eines falschen Hostnamens oder einer Firewall. Für Google heißt der Server `smtp.gmail.com` (nicht `smtp.google.com`). | In der **SMTP-Konfiguration** Host und Port prüfen. Details stehen im i-doit-Log `log/smtp_<Datum>.log`. |
+| Erfüllungsgrad nach dem Cron-Lauf weicht von der Oberfläche ab (bis Version 1.6.13) | Der Cron-Job hat Regeln auf einigen Kategorien (z. B. Kontaktzuweisung, Hostadresse) nicht ausgewertet. | Auf Version 1.6.14 aktualisieren. |
+| Cron-Job meldet „regeln_fehlerhaft=…“ | Einzelne Regeln konnten nicht ausgewertet werden; Regel und Grund stehen in den folgenden Zeilen der Cron-Ausgabe. | Regel im Regelwerk prüfen und ggf. neu anlegen; sonst den Support mit der Cron-Ausgabe kontaktieren. |
 | Mail enthält keine Links | In den Systemeinstellungen ist unter **URL Einstellungen** keine **i-doit Adresse (URL)** hinterlegt. | Adresse eintragen, zum Beispiel `https://i-doit.example.de/`. |
 
 ## Log-Dateien

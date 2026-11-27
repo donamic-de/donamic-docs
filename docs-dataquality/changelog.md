@@ -7,6 +7,35 @@ sidebar_position: 90
 
 Diese Seite fasst die wichtigsten Neuerungen und Verbesserungen von Data Quality in verständlicher Form zusammen.
 
+## [1.6.14] — 25.11.2026
+
+### Behoben: Cron-Auswertung ließ Regeln aus
+
+Bei der Auswertung über den Cron-Job wurden Regeln auf einigen Kategorien nicht
+ausgewertet, etwa auf Kontaktzuweisung, Hostadresse, Anschlüssen oder Grafikkarte. Es gab
+dazu keine Meldung. Erfüllungsgrad und Mail nach einem Cron-Lauf wichen deshalb von der
+Oberfläche ab. Jetzt wertet der Cron-Job alle Regeln aus. Kann eine Regel trotzdem nicht
+ausgewertet werden, meldet der Cron-Job das mit `regeln_fehlerhaft=…` und nennt die Regel
+samt Grund.
+
+### Behoben: Veraltete Objekte und Kategorie-Nutzung
+
+- **Veraltete Objekte** enthielten Beziehungen (zum Beispiel „Etage 1 ist Standort von
+  Raum 104“) und geschützte Systemobjekte wie „Root location“. Beides zählt in Liste,
+  Kachel und Prüfbericht nicht mehr mit.
+- Die **Kategorie-Nutzung** zeigte Ansichtskategorien wie „Rechtevergabe“ und „Alle
+  Tickets“, die keine eigenen Daten speichern und deshalb immer bei 0 % standen. Sie
+  erscheinen nicht mehr.
+
+### Behoben: Prüfbericht
+
+- Der Erfüllungsgrad je Objekttyp war anders berechnet als der Gesamtwert und zeigte oft
+  0,0 %. Jetzt rechnen beide gleich, wie Dashboard und Mail. Die Spalten heißen
+  „Objekttyp“, „Objekte“, „Objekte mit Lücken“ und „Erfüllungsgrad“.
+- Im Regelwerk blieb die dritte Spalte leer. Sie zeigt jetzt je Regel die betroffenen
+  Objekte, zum Beispiel „45 / 46“.
+- Unter „Größte Lücken“ stand teils „__category__“, im Regelwerk „mind. 1 Einträge“.
+
 ## [1.6.13] — 24.11.2026
 
 ### Neu: Mail in der Sprache des Empfängers

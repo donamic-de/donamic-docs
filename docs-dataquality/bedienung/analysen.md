@@ -12,6 +12,11 @@ Der Ordner **Analysen** im Tree bündelt die listenbasierten Auswertungen.
 Übersicht, welche Kategorien auf welchen Objekttypen vorhanden sind und wie oft sie
 tatsächlich genutzt werden — hilft, ungenutzte Kategorien zu identifizieren.
 
+Reine Ansichtskategorien ohne eigene Daten zählen nicht mit, etwa **Rechtevergabe**,
+**Alle Tickets**, **Räumlich zugeordnete Objekte** oder **Listeneditierung**. Sie zeigen
+nur Daten aus anderen Kategorien oder angebundenen Systemen an und stünden sonst immer
+bei 0 %.
+
 ## Leere Objekttypen
 
 Listet Objekttypen ohne ein einziges Objekt. Sinnvoll für die Initial-Bereinigung der
@@ -21,6 +26,13 @@ CMDB-Struktur.
 
 Objekte, die seit X Monaten nicht mehr aktualisiert wurden. Pro Eintrag lässt sich das
 **Archivieren** ausführen.
+
+Nicht in der Liste erscheinen:
+
+- **Beziehungsobjekte** wie „Etage 1 ist Standort von Raum 104“. Eine Beziehung ändert
+  sich nicht, solange beide Objekte bestehen, und wäre sonst fast immer „veraltet“.
+- **Geschützte Systemobjekte** wie „Root location“ oder „Global v4“, die sich nicht
+  archivieren lassen.
 
 :::warning
 Archivieren und Löschen erfordern das Recht **Administrieren**. Die Aktion wirkt sofort
